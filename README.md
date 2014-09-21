@@ -4,6 +4,7 @@ Current Todos:
 
 - figure out efficiency issue with seed uploader
 - figure out why only 20k / 100k records are getting uploaded
+- add ! to create methods in seeders so if it  fails if create/save doesn't work: "you should try using #create! instead of #create so that you receive an error if the create fails. It's also probably good to use #find_or_create! so that you can run the script multiple times without creating duplicates."
 
 - write user stories
 
