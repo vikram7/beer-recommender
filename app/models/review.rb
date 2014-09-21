@@ -7,7 +7,7 @@ class Review < ActiveRecord::Base
   validates :beer_id,
     presence: true
   validates :taste,
-    presence: true, uniqueness: { scope: :user_id }
+    presence: true
 
     #index on #1
 end
