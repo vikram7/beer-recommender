@@ -1,0 +1,8 @@
+Running Questions
+
+1) CSV file will be imported into database. Some of the columns are fractions like '5/10' or '7/20' (without single quotes). I'll be using these numbers to make averages and use them in the calculation for recommendations. How best to treat these in the db table? As a string (and then convert to float? or import)
+
+2) How do I get the CSV into activerecord to create a seeds file?
+
+3) Will setting the primary key with (self.primary_key = 'beer_id' or self.primary_key = 'brewer_id') cause problems?
+

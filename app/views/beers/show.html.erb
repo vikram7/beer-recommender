@@ -1,0 +1,21 @@
+<h1><%= @beer.name %></h1>
+<small>
+ABV: <% if @beer.abv == 0.0 %>
+  <%= '--' %>
+  <% else %>
+    <%= @beer.abv %>%</small>
+    <% end %>
+  <br>
+Average rating: <%= @average %><br>
+Style: <%= @beer.style.style %><br>
+Made by: <%= @beer.brewer_id %><br>
+Number of reviews: <%= @beer.reviews.count %><br>
+
+<h2>Reviews:</h2>
+<% @beer.reviews.each do |review| %>
+  <p>
+  User <%= review.user.profile_name %> gave it a rating of <%= review.taste %><br>
+  <%= review.text %><br>
+  <small>by user <%= review.user.profile_name %> on <%= review.created_at %></small>
+  </p>
+<% end %>
