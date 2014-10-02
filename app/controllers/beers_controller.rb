@@ -1,11 +1,13 @@
 class BeersController < ApplicationController
 
   def index
+
     if params[:search] == nil
       @beers = Beer.order(name: :asc)
     else
       @beers = Beer.search(params[:search]).order(name: :asc)
     end
+
   end
 
   def show

@@ -8,7 +8,7 @@ ABV: <% if @beer.abv == 0.0 %>
   <br>
 Average rating: <%= @average %><br>
 Style: <%= @beer.style.style %><br>
-Made by: <%= @beer.brewer_id %><br>
+Made by: <%= @beer.brewer.name %><br>
 Number of reviews: <%= @beer.reviews.count %><br>
 
 <h2>Reviews:</h2>
