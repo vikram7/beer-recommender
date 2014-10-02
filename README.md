@@ -1,8 +1,9 @@
 Beer Recommendation Engine
 
 - October 2, 2014
-  - main page of 88k beers took around 5960 ms to load (found this from mini profiler)
+  - main page of 88k beers took around 5960 ms to load (found this from mini profiler); 375 sql queries
   - looked into eager loading and some other methods to speed up query of all beers
+  - add indices to all foreign keys
 
 Current Todos:
 
