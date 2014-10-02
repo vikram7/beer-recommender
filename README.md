@@ -1,10 +1,21 @@
 Beer Recommendation Engine
 
+- October 2, 2014
+  - main page of 3700 beers took around 5960 ms to load (found this from mini profiler); 375 sql queries
+  - looked into eager loading and some other methods to speed up query of all beers
+  - add indices to all foreign keys
+
 Current Todos:
 
 - figure out efficiency issue with seed uploader
 
-- figure out why only 20k / 100k records are getting uploaded
+- figure out why only 86k / 100k records are getting uploaded:
+```
+Creating brewer with id: 5546
+Creating beer with name: La Saint-Pierre Blonde de l`Oncle Hansi
+rake aborted!
+ActiveRecord::RecordInvalid: Validation failed: Name has already been taken
+```
 
 - add ! to create methods in seeders so if it  fails if create/save doesn't work: "you should try using #create! instead of #create so that you receive an error if the create fails. It's also probably good to use #find_or_create! so that you can run the script multiple times without creating duplicates."
 - add indexes

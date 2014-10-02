@@ -41,3 +41,18 @@ gem 'spring',        group: :development
 gem 'pry-rails'
 gem 'nokogiri'
 gem 'ruby-prof'
+gem 'kaminari'
+
+group :development, :test do
+  gem 'rack-mini-profiler'
+  gem 'valid_attribute'
+  gem 'shoulda'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'factory_girl'
+  gem 'dotenv-rails'
+  gem 'jquery-star-rating-rails'
+end
