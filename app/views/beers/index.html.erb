@@ -9,7 +9,7 @@ Search for a beer here or leave it empty to see our entire beer list.
 
 <ul>
 <% @beers.each do |beer| %>
-  <p>
+  <li>
   Name: <%= link_to beer.name, beer_path(beer) %><br>
   Brewer:<%= beer.brewer.name %><br>
   Style: <%= beer.style.style %><br>
@@ -19,7 +19,7 @@ Search for a beer here or leave it empty to see our entire beer list.
     <% else %>
       <%= beer.abv %>%<br>
   <% end %>
-  </p>
+  </li>
 <% end %>
 </ul>
 
