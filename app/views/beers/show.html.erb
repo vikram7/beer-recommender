@@ -1,15 +1,28 @@
 <h1><%= @beer.name %></h1>
-<small>
-ABV: <% if @beer.abv == 0.0 %>
+
+<div>ABV: <% if @beer.abv == 0.0 %>
   <%= '--' %>
   <% else %>
     <%= @beer.abv %>%</small>
     <% end %>
-  <br>
-Average rating: <%= @average %><br>
-Style: <%= @beer.style.style %><br>
-Made by: <%= @beer.brewer.name %><br>
-Number of reviews: <%= @beer.reviews.count %><br>
+</div>
+<div>Average rating: <%= @average %></div>
+<div>Style: <%= @beer.style.style %></div>
+<div>Made by: <%= @beer.brewer.name %></div>
+<div>Number of reviews: <%= @beer.reviews.count %></div>
+
+<h5>Add Review</h5>
+  <%= form_for [@beer, @review] do |f| %>
+    <div>
+      <%= f.label :text %>
+      <%= f.text_area :text %>
+    </div>
+    <div>
+      <%= f.label :taste %>
+      <%= f.select :taste, (1..10) %>
+    </div>
+    <div><%= f.submit "Submit" %></div>
+  <% end %>
 
 <h2>Reviews:</h2>
 <% @beer.reviews.each do |review| %>
