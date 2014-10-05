@@ -8,8 +8,21 @@
 </head>
 <body>
 
-<h1>Beer Recommendation Site</h1>
+<h1>This is a beer recommendation site</h1>
+<%= flash[:notice] %>
 <%= yield %>
+
+
+<% if !user_signed_in? %>
+  <div>
+    <%= link_to "Sign in", new_user_session_path %>
+  </div>
+  <div>
+    <%= link_to "Sign up", new_user_registration_path %>
+  </div>
+<% else %>
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% end %>
 
 </body>
 </html>
