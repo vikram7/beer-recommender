@@ -4,6 +4,8 @@ Beer Recommendation Engine
   - added devise gem for user registration
   - updated seed file for allowing required user inputs from devise
   - added ability for user to add reviews of beers
+  - added unit tests for models
+  - added feature tests for signing up, singing in and out
 
 - October 2, 2014
   - main page of 3700 beers took around 5960 ms to load (found this from mini profiler); 375 sql queries
