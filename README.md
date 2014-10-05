@@ -3,6 +3,7 @@ Beer Recommendation Engine
 - October 5, 2014
   - added devise gem for user registration
   - updated seed file for allowing required user inputs from devise
+  - added ability for user to add reviews of beers
 
 - October 2, 2014
   - main page of 3700 beers took around 5960 ms to load (found this from mini profiler); 375 sql queries
@@ -12,6 +13,8 @@ Beer Recommendation Engine
 Current Todos:
 
 - figure out efficiency issue with seed uploader
+
+- create visual diagram of how the recommendation engine works
 
 - figure out why only 86k / 100k records are getting uploaded:
 ```
