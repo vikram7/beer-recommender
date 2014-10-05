@@ -1,3 +1,14 @@
 <div>
   This is a beer recommender. It is a based on a machine learning algorithm.
 </div>
+
+<% if !user_signed_in? %>
+  <div>
+    <%= link_to "Sign in", new_user_session_path %>
+  </div>
+  <div>
+    <%= link_to "Sign up", new_user_registration_path %>
+  </div>
+<% else %>
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% end %>

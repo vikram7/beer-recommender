@@ -6,7 +6,7 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label "profile name" %><i>(3 characters minimum</i><br />
+  <div><%= f.label :profile_name %><br />
   <%= f.text_field :profile_name %></div>
 
   <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
