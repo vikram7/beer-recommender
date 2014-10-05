@@ -1,5 +1,8 @@
 Beer Recommendation Engine
 
+- October 5, 2014
+  - added devise gem for user registration
+
 - October 2, 2014
   - main page of 3700 beers took around 5960 ms to load (found this from mini profiler); 375 sql queries
   - looked into eager loading and some other methods to speed up query of all beers
