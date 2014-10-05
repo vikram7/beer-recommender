@@ -42,6 +42,7 @@ gem 'pry-rails'
 gem 'nokogiri'
 gem 'ruby-prof'
 gem 'kaminari'
+gem 'devise'
 
 group :development, :test do
   gem 'rack-mini-profiler'
