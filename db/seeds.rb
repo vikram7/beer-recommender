@@ -4,12 +4,19 @@ start_time = Time.now
 
 file = File.read('Ratebeer.csv')
 csv = CSV.parse(file, :headers => true, :header_converters => :symbol)
+count = 0
 csv.each do |row|
   puts "Creating style with name: #{row[:style]}"
   style = Style.find_or_create_by!(style: row[:style])
 
   puts "Creating user with profile_name: #{row[:profile_name]}"
-  user = User.find_or_create_by!(profile_name: row[:profile_name], created_at: '2014-09-20 13:04:24')
+
+  if !User.find_by(profile_name: row[:profile_name])
+    user = User.create!(profile_name: row[:profile_name], created_at: '2014-09-20 13:04:24', email: "email#{count}@email.com", password: "passwordpassword")
+  else
+    user = User.find_by(profile_name: row[:profile_name])
+  end
+  count += 1
 
   puts "Creating brewer with id: #{row[:brewer_id]}"
   brewer = Brewer.find_or_create_by!(brewer_id: row[:brewer_id])

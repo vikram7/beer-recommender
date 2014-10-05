@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :profile_name, uniqueness: true
-  validates :profile_name, presence: true, length: { in: (3..32) }
+  validates :profile_name, presence: true, length: { in: (1..32) }
 
   has_many :reviews
 end
