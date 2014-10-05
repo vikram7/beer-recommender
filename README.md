@@ -6,6 +6,7 @@ Beer Recommendation Engine
   - added ability for user to add reviews of beers
   - added unit tests for models
   - added feature tests for signing up, singing in and out
+  - added feature tests for user to add a review and rating for a beer
 
 - October 2, 2014
   - main page of 3700 beers took around 5960 ms to load (found this from mini profiler); 375 sql queries
