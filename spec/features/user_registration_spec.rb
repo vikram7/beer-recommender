@@ -6,7 +6,6 @@ feature "User registration, sign in and sign out" do
     user = FactoryGirl.build(:user)
     visit root_path
     click_on "Sign up"
-    save_and_open_page
     fill_in "Email", with: user.email
     fill_in "Profile name", with: user.profile_name
     fill_in "Password", with: user.password
