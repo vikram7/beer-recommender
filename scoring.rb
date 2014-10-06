@@ -42,7 +42,7 @@ def simpearson(o_user_id, c_user_id)
   return numerator / denominator
 end
 
-def top_matches(dictionary, c_user_id)
+def top_matches(c_user_id)
 # ordered list of people with similar tastes to specified person
 # lets user see other users similar to that user
   scores = []
@@ -52,7 +52,7 @@ def top_matches(dictionary, c_user_id)
   scores.sort.reverse
 end
 
-def user_unrated_beers(dictionary, c_user_id)
+def user_unrated_beers
   # find which beers the user has not rated
   beers = []
   Beer.all.each do |beer|
@@ -65,7 +65,12 @@ def user_unrated_beers(dictionary, c_user_id)
   beers.uniq - c_user_beers.uniq
 end
 
-
-
-
-'Toby': { 'Snakes on a Plane':4.5,'You, Me and Dupree':1.0,'Superman Returns':4.0 }
+def expected_values_of_unrated_beers(o_user_id, c_user_id)
+  unrated_beers = user_unrated_beers
+  sim_score = simpearson(o_user_id, c_user_id)
+  expected_values = Hash.new
+  unrated_beers.each do |beer_id|
+    expected_values[beer_id] = dictionary[o_user_id][beer_id] * sim_score
+  end
+  expected_values
+end
