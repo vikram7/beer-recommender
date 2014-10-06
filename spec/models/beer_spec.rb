@@ -4,7 +4,10 @@ describe Beer do
 
   describe 'validations' do
     it { should validate_presence_of(:name) }
-    it { should validate_uniqueness_of(:name).scoped_to(:brewer) }
+    it do
+      FactoryGirl.create(:beer)
+      should validate_uniqueness_of(:name).scoped_to(:brewer_id)
+    end
     it { should validate_presence_of(:brewer) }
     it { should validate_presence_of(:style) }
   end
