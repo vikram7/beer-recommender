@@ -52,4 +52,20 @@ def top_matches(dictionary, c_user_id)
   scores.sort.reverse
 end
 
+def user_unrated_beers(dictionary, c_user_id)
+  # find which beers the user has not rated
+  beers = []
+  Beer.all.each do |beer|
+    beers << beer.id
+  end
+  c_user_beers = []
+  dictionary[c_user_id].each do |beer_id, taste|
+    c_user_beers << beer_id
+  end
+  beers.uniq - c_user_beers.uniq
+end
 
+
+
+
+'Toby': { 'Snakes on a Plane':4.5,'You, Me and Dupree':1.0,'Superman Returns':4.0 }
