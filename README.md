@@ -7,6 +7,7 @@ Beer Recommendation Engine
   - added unit tests for models
   - added feature tests for signing up, singing in and out
   - added feature tests for user to add a review and rating for a beer
+  - found out why seeding was failing at review ~86k ("la-saint-pierre-blonde-de-l`oncle-hansi-" was some extra text appended to the brewer id in some of the beers. need to make sure to watch for this in the future (when going for 4mm records))
 
 - October 2, 2014
   - main page of 3700 beers took around 5960 ms to load (found this from mini profiler); 375 sql queries
