@@ -27,7 +27,7 @@
 <h2>Reviews:</h2>
 <% @beer.reviews.each do |review| %>
   <p>
-  User <%= review.user.profile_name %> gave it a rating of <%= review.taste %><br>
+  User <%= link_to review.user.profile_name, user_path(review.user.id) %> gave it a rating of <%= review.taste %><br>
   <%= review.text %><br>
   <small>by user <%= review.user.profile_name %> on <%= review.created_at %></small>
   </p>

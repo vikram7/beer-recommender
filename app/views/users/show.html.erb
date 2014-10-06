@@ -1,0 +1,21 @@
+<div>
+  <%= @user.profile_name %>'s reviews and ratings
+</div>
+
+<ul>
+<div>
+  <% @user.reviews.each do |review| %>
+    <li>
+    <div>
+      <%= link_to review.beer.name, beer_path(review.beer.id) %>
+    </div>
+    <div>
+      <%= review.text %>
+    </div>
+    <div>
+      <%= review.taste %>
+    </div>
+    </li>
+  <% end %>
+</div>
+</ul>
