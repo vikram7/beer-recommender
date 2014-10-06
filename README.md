@@ -1,5 +1,9 @@
 Beer Recommendation Engine
 
+- October 6, 2014
+  - indexed foreign keys
+  - Prior to indexing foreign keys: importing all 4348 beers took 10,786 ms and 414 sql queries (learned through my profiler); after adding foreign keys, this took 10,632 ms and 414 sql queries.
+
 - October 5, 2014
   - added devise gem for user registration
   - updated seed file for allowing required user inputs from devise
