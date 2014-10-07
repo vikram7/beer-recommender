@@ -1,6 +1,9 @@
 <div>
   <%= @user.profile_name %>'s reviews and ratings
 </div>
+<div>
+  You have a <%= '%.0f' % (Score.simpearson(current_user.id, @user.id) * 100) %>% similarity with <%= @user.profile_name %>
+</div>
 
 <ul>
 <div>
