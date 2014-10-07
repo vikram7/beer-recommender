@@ -6,9 +6,12 @@ module Score
       o_user_id = o_user_id.to_s
       c_user_id = c_user_id.to_s
       mutual = []
+
       @dictionary[o_user_id].each do |o_beer, o_taste|
         @dictionary[c_user_id].each do |c_beer, c_taste|
+
           mutual << [o_taste, c_taste] if o_beer == c_beer
+
         end
       end
       n = mutual.length
@@ -34,11 +37,13 @@ module Score
       else
         numerator/denominator
       end
+
     end
 
     def top_matches(c_user_id)
     # ordered list of people with similar tastes to specified person
     # lets user see other users similar to that user
+      c_user_id = c_user_id.to_s
       scores = []
       @dictionary.each do |o_user_id, ratings|
         scores << [simpearson(o_user_id, c_user_id), o_user_id]
