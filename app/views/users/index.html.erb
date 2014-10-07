@@ -1,0 +1,11 @@
+<div>
+  Here are the top 10 users with similar tastes in beer as you
+</div>
+
+<ul>
+  <% @top_ten.each do |user| %>
+    <li>
+      <%= User.find(user.last).profile_name %>: <%= number_to_percentage(user.first * 100, precision: 0) %>
+    </li>
+  <% end %>
+</ul>
