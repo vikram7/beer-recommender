@@ -5,7 +5,7 @@ Beer Recommendation Engine
   - top_matches method which returns the top 10 highest pearson similarity scores and user id's
   - added the score related methods to a module Score in models
   - create migration for pg JSON dictionary data
-  : create rake tasks thing
+  - wrote populate.rake file in lib/tasks to populate dictionary db table with most recent rating data (run with rake dictionary:populate)
 
 - October 6, 2014
   - indexed foreign keys
