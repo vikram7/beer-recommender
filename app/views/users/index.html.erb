@@ -5,7 +5,7 @@
 <ul>
   <% @top_ten.each do |user| %>
     <li>
-      <%= User.find(user.last).profile_name %>: <%= number_to_percentage(user.first * 100, precision: 0) %>
+      <%= link_to User.find(user.last).profile_name, user_path(user.last) %>: <%= number_to_percentage(user.first * 100, precision: 0) %>
     </li>
   <% end %>
 </ul>
