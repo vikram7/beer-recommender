@@ -7,6 +7,7 @@ Beer Recommendation Engine
   - create migration for pg JSON dictionary data
   - wrote populate.rake file in lib/tasks to populate dictionary db table with most recent rating data (run with rake dictionary:populate)
   - Score module self methods to calculate pearson similarity score and other statistics
+  - update users view to show top similar users
 
 - October 6, 2014
   - indexed foreign keys
