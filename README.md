@@ -3,9 +3,10 @@ Beer Recommendation Engine
 - October 7, 2014
   - simpearson calculation was resulting in a denominator of 0 for two users with no mutually rated beers. fixed so that method returns 0 if there are no mutually rated beers (as opposed to "NaN" which was getting returned before)
   - top_matches method which returns the top 10 highest pearson similarity scores and user id's
-  - added the score related methods to a module Score in models
+  - added the score related methods to a module Score in models.
   - create migration for pg JSON dictionary data
   - wrote populate.rake file in lib/tasks to populate dictionary db table with most recent rating data (run with rake dictionary:populate)
+  - Score module self methods to calculate pearson similarity score and other statistics
 
 - October 6, 2014
   - indexed foreign keys
