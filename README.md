@@ -1,5 +1,9 @@
 Beer Recommendation Engine
 
+- October 7, 2014
+  - simpearson calculation was resulting in a denominator of 0 for two users with no mutually rated beers. fixed so that method returns 0 if there are no mutually rated beers (as opposed to "NaN" which was getting returned before)
+  - top_matches method which returns the top 10 highest pearson similarity scores and user id's
+
 - October 6, 2014
   - indexed foreign keys
   - Prior to indexing foreign keys: importing all 4348 beers took 10,786 ms and 414 sql queries (learned through my profiler); after adding foreign keys, this took 10,632 ms and 414 sql queries.

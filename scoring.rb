@@ -50,7 +50,6 @@ def top_matches(c_user_id)
   @dictionary.each do |o_user_id, ratings|
     scores << [simpearson(o_user_id, c_user_id), o_user_id]
   end
-
   scores = scores.sort.reverse
   scores.take(10)
 end
