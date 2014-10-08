@@ -31,17 +31,8 @@
   <body>
     <%= flash[:notice] %>
     <%= render 'layouts/main_navbar' %>
-    <%= render 'layouts/search' %>
     <%= yield %>
-    <footer id="footer">
-      <div class="row">
-          <div class="large-12 medium-12 columns">
-              <div class="copyright text-center">
-                  <a href="#">Vikram Ramakrishnan</a> &copy; 2014.
-              </div>
-          </div>
-      </div>
-    </footer>
+    <%= render 'layouts/footer' %>
     <%= javascript_include_tag "application" %>
 
   </body>
