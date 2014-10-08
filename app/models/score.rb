@@ -122,7 +122,15 @@ module Score
           sim_sums[beer_id] += [sim] if sim > 0
         end
       end
-      sim_sums
+      sim_sums[beer_id].inject(:+)
+    end
+
+    def total_by_sim_sum(beer_id, c_user_id)
+      beer_id = beer_id.to_s
+      c_user_id = c_user_id.to_s
+      total = expected_ratings_of_beers_by_beer(c_user_id)[beer_id].inject(:+)
+      sim_sum = beer_sim_sum(beer_id, c_user_id)
+      total/sim_sum
     end
 
   end
