@@ -31,7 +31,9 @@
   <body>
     <%= flash[:notice] %>
     <%= render 'layouts/main_navbar' %>
-    <%= yield %>
+    <div class="row">
+        <%= yield %>
+    </div>
     <%= render 'layouts/footer' %>
     <%= javascript_include_tag "application" %>
 
