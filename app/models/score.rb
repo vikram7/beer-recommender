@@ -1,5 +1,6 @@
 module Score
 @dictionary = Dictionary.last.payload
+@all_beers = Beer.all
   class << self
     def simpearson(o_user_id, c_user_id)
     #calculates similarity score between two users; o_user is the other user hash; c_user is the current user hash
@@ -75,7 +76,6 @@ module Score
     def all_expected_values_of_unrated_beers(c_user_id)
       other_users = @dictionary.keys
       c_user_id = c_user_id.to_s
-
       expected_values = Hash.new
       other_users.each do |o_user_id|
         expected_values[o_user_id] = expected_values_of_unrated_beers(o_user_id, c_user_id)
@@ -83,5 +83,48 @@ module Score
       expected_values
     end
 
+    def expected_ratings_of_beers_by_beer(c_user_id)
+      other_users = @dictionary.keys
+      c_user_id = c_user_id.to_s
+      expected_values = Hash.new([])
+      all_expected_values_of_unrated_beers(c_user_id).each do |user_id, beer_ratings|
+        beer_ratings.each do |beer_id, rating|
+          expected_values[beer_id] += [rating] if rating > 0
+        end
+      end
+      expected_values
+    end
+
+    def other_user_sims(c_user_id)
+      other_users = @dictionary.keys
+      c_user_id = c_user_id.to_s
+      similarities = Hash.new(0)
+      other_users.each do |o_user_id, ratings|
+        similarities[o_user_id] = simpearson(o_user_id, c_user_id)
+      end
+      similarities
+    end
+
+    def user_reviewed_beer?(user_id, beer_id)
+      user_id = user_id.to_s
+      beer_id = beer_id.to_s
+      @dictionary[user_id].has_key?(beer_id)
+    end
+
+    def beer_sim_sum(beer_id, c_user_id)
+      c_user_id = c_user_id.to_s
+      beer_id = beer_id.to_s
+      other_users = @dictionary.keys
+      sim_sums = Hash.new([])
+      other_users.each do |user_id, ratings|
+        if user_reviewed_beer?(user_id, beer_id)
+          sim = simpearson(user_id, c_user_id)
+          sim_sums[beer_id] += [sim] if sim > 0
+        end
+      end
+      sim_sums
+    end
+
   end
+
 end
