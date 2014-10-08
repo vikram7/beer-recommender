@@ -1,0 +1,413 @@
+/* = @media queries  info 
+===========================*/
+ body:before {
+    position: absolute;
+    top: 0;
+    right:0;
+}
+/*=======================
+   max-width: 1400px
+=========================*/
+ @media screen and (max-width: 1400px) {
+    /*
+    body:before {
+        content:"max-width: 1400px";
+    }
+    */
+    #menu {
+        width: 5rem;
+    }
+    .logo {
+        background: url('../img/logo_th.png') no-repeat scroll center center transparent;
+        background-size: contain;
+        -moz-background-size: contain;
+        height: 80px;
+    }
+    .capicon {
+        font-size: 1.8rem;
+        padding: 2rem 0;
+    }
+    .wrapper {
+        margin-left: 5rem;
+    }
+    /* Home */
+    section#home {
+        padding-top: 8em !important;
+        margin-left:0;
+    }
+    .subhead_title {
+        font-size: 2rem;
+    }
+    /* About */
+    section#about {
+        padding-top: 7rem;
+    }
+    .about_name {
+        font-size: 1.5rem;
+        line-height: 1.5;
+    }
+    .about_caption .capicon {
+        font-size: 2rem;
+        padding: 0.2rem;
+    }
+    /* Portfolio */
+    section#portfolio {
+        padding-top: 2rem;
+    }
+    #projects li {
+        width: 33%;
+    }
+    .tumb img {
+        -webkit-transform:scale(2) translatey(-3.5rem);
+        transform:scale(2) translatey(-3.5rem);
+    }
+    /* Services */
+    section#services {
+        padding-top: 2rem;
+    }
+    /* Contact */
+    section#contact {
+        padding-top: 2rem;
+    }
+    /* Footer */
+    footer#footer, footer#footer a {
+        margin-left:0;
+    }
+}
+/*=======================
+   max-width: 1200px
+=========================*/
+ @media screen and (max-width: 1200px) {
+    /* body:before {
+        content:"max-width: 1200px";
+    }*/
+    #menu {
+        width: 5rem;
+    }
+    .logo {
+        background: url('../img/logo_th.png') no-repeat scroll center center transparent;
+        background-size: contain;
+        -moz-background-size: contain;
+        height: 80px;
+    }
+    .capicon {
+        font-size: 1.8rem;
+        padding: 2rem 0;
+    }
+    .wrapper {
+        margin-left: 5rem;
+    }
+    /* Home */
+    section#home {
+        padding-top: 7em !important;
+        margin-left:0;
+    }
+    .subhead_title {
+        font-size: 2rem;
+    }
+    /* About */
+    section#about {
+        padding-top: 7rem;
+    }
+    .about_name {
+        font-size: 1rem;
+        line-height: 1;
+    }
+    .about_caption .capicon {
+        font-size: 2rem;
+        padding: 0.2rem;
+    }
+    /* Portfolio */
+    section#portfolio {
+        padding-top: 2rem;
+    }
+    #projects li {
+        width: 33%;
+        height: 150px;
+    }
+    .tumb img {
+        -webkit-transform:scale(2) translatey(-2.5rem);
+        transform:scale(2) translatey(-2.5rem);
+    }
+    /* Services */
+    section#services {
+        padding-top: 2rem;
+    }
+    /* Contact */
+    section#contact {
+        padding-top: 2rem;
+    }
+    /* Footer */
+    footer#footer, footer#footer a {
+        margin-left:0;
+    }
+}
+/*=======================
+   max-width: 1024px
+=========================*/
+ @media screen and (max-width: 1024px) {
+    /*body:before {
+        content:"max-width: 1024px";
+    }*/
+    #menu {
+        width: 3rem;
+    }
+    .logo {
+        background: url('../img/logo_th.png') no-repeat scroll center center transparent;
+        background-size: contain;
+        -moz-background-size: contain;
+        height: 50px;
+    }
+    .capicon {
+        font-size: 1.8rem;
+        padding: 1rem 0;
+    }
+    .wrapper {
+        margin-left: 3rem;
+    }
+    /* Home */
+    section#home {
+        padding-top: 5em !important;
+        margin-left:0;
+    }
+    .subhead_title {
+        font-size: 2rem;
+    }
+    /* About */
+    section#about {
+        padding-top: 7rem;
+    }
+    .about_name {
+        font-size: 1rem;
+        line-height: 1;
+    }
+    .about_caption .capicon {
+        font-size: 2rem;
+        padding: 0.2rem;
+    }
+    /* Portfolio */
+    section#portfolio {
+        padding-top: 2rem;
+    }
+    #projects li {
+        width: 33%;
+        height: 100px;
+    }
+    .tumb img {
+        -webkit-transform:scale(2) translatey(-2.5rem);
+        transform:scale(2) translatey(-2.5rem);
+    }
+    /* Services */
+    section#services {
+        padding-top: 2rem;
+    }
+    /* Contact */
+    section#contact {
+        padding-top: 2rem;
+    }
+    /* Footer */
+    footer#footer, footer#footer a {
+        margin-left:0;
+    }
+}
+/*=======================
+   max-width: 800px
+=========================*/
+ @media screen and (max-width: 800px) {
+    /*body:before {
+        content:"max-width: 800px";
+    }*/
+    #menu {
+        width: 3rem;
+    }
+    .logo {
+        background: url('../img/logo_th.png') no-repeat scroll center center transparent;
+        background-size: contain;
+        -moz-background-size: contain;
+        height: 50px;
+    }
+    .capicon {
+        font-size: 1.8rem;
+        padding: 1rem 0;
+    }
+    .wrapper {
+        margin-left: 3rem;
+    }
+    /* Home */
+    section#home {
+        padding-top: 5em !important;
+        margin-left:0;
+    }
+    .subhead_title {
+        font-size: 2rem;
+    }
+    /* About */
+    section#about {
+        padding-top: 7rem;
+    }
+    .about_name {
+        font-size: 1rem;
+        line-height: 1;
+    }
+    .about_caption .capicon {
+        font-size: 2rem;
+        padding: 0.2rem;
+    }
+    /* Portfolio */
+    section#portfolio {
+        padding-top: 2rem;
+    }
+    #projects li {
+        width: 49%;
+    }
+    .tumb img {
+        -webkit-transform:scale(2) translatey(-3rem);
+        transform:scale(2) translatey(-3rem);
+    }
+    /* Services */
+    section#services {
+        padding-top: 2rem;
+    }
+    /* Contact */
+    section#contact {
+        padding-top: 2rem;
+    }
+    /* Footer */
+    footer#footer, footer#footer a {
+        margin-left:0;
+    }
+}
+/*=======================
+   max-width: 640px
+=========================*/
+ @media screen and (max-width: 640px) {
+    /*body:before {
+        content:"max-width: 640px";
+    }*/
+    #menu {
+        width: 3rem;
+    }
+    .logo {
+        background: url('../img/logo_th.png') no-repeat scroll center center transparent;
+        background-size: contain;
+        -moz-background-size: contain;
+        height: 50px;
+    }
+    .capicon {
+        font-size: 1.8rem;
+        padding: 1rem 0;
+    }
+    .wrapper {
+        margin-left: 3rem;
+    }
+    /* Home */
+    section#home {
+        padding-top: 5em !important;
+        margin-left:0;
+    }
+    .subhead_title {
+        font-size: 2rem;
+    }
+    /* About */
+    section#about {
+        padding-top: 2rem;
+    }
+    .about_name {
+        font-size: 1rem;
+        line-height: 1;
+    }
+    .about_caption .capicon {
+        font-size: 2rem;
+        padding: 0.2rem;
+    }
+    /* Portfolio */
+    section#portfolio {
+        padding-top: 2rem;
+    }
+    #projects li {
+        width: 100%;
+    }
+    .tumb img {
+        -webkit-transform:scale(2) translatey(-3.5rem);
+        transform:scale(2) translatey(-3.5rem);
+    }
+    /* Services */
+    section#services {
+        padding-top: 2rem;
+    }
+    /* Contact */
+    section#contact {
+        padding-top: 2rem;
+    }
+    /* Footer */
+    footer#footer, footer#footer a {
+        margin-left:0;
+    }
+}
+/*=======================
+   max-width: 320px
+=========================*/
+ @media screen and (max-width: 320px) {
+    /*body:before {
+        content:"max-width: 320px";
+    }*/
+    #menu {
+        width: 3rem;
+    }
+    .logo {
+        background: url('../img/logo_th.png') no-repeat scroll center center transparent;
+        background-size: contain;
+        -moz-background-size: contain;
+        height: 50px;
+    }
+    .capicon {
+        font-size: 1.8rem;
+        padding: 1rem 0;
+    }
+    .wrapper {
+        margin-left: 3rem;
+    }
+    /* Home */
+    section#home {
+        padding-top: 5em !important;
+        margin-left:0;
+    }
+    .subhead_title {
+        font-size: 2rem;
+    }
+    /* About */
+    section#about {
+        padding-top: 2rem;
+    }
+    .about_name {
+        font-size: 1rem;
+        line-height: 1;
+    }
+    .about_caption .capicon {
+        font-size: 2rem;
+        padding: 0.2rem;
+    }
+    /* Portfolio */
+    section#portfolio {
+        padding-top: 2rem;
+    }
+    #projects li {
+        width: 100%;
+    }
+    .tumb img {
+        -webkit-transform:scale(2) translatey(-2rem);
+        transform:scale(2) translatey(-2rem);
+    }
+    /* Services */
+    section#services {
+        padding-top: 2rem;
+    }
+    /* Contact */
+    section#contact {
+        padding-top: 2rem;
+    }
+    /* Footer */
+    footer#footer, footer#footer a {
+        margin-left:0;
+    }
+}

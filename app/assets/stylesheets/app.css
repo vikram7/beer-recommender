@@ -1,0 +1,732 @@
+/* Table of Content
+==================================================
+
+    1 - GLOBAL.
+    2 - HELPERS.
+    3 - CUSTOM FOUNDATION.
+    4 - PRELOADER.
+    5 - THEME STYLES.
+
+/* ===========================================================
+                            GLOBAL
+   =========================================================== */
+
+/* Body */
+ html, body {
+    position: relative;
+    height: 99%;
+}
+body {
+    font-family:"Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    color: #ECF0F1;
+    line-height: 1.4;
+    margin-bottom: 0.8125rem;
+    background: #2C3E50;
+}
+/*
+----------------------------------  LINKS */
+ a {
+    color: #f04124;
+    /*transition*/
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+}
+a:hover {
+    color: #ea2f10;
+    text-decoration: underline;
+}
+a:focus {
+    outline: none;
+    outline: 0 auto -webkit-focus-ring-color;
+    outline-offset: 0;
+}
+/*
+----------------------------------  HEADING */
+ h1, h2, h3, h4, h5, h6 {
+    font-family:"Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    color: #1ABC9C;
+    line-height: 1.3;
+    margin-bottom: 0.8125rem;
+}
+/*
+----------------------------------  SELECTION */
+ ::-moz-selection {
+    background-color: #777;
+    color: #fff;
+    text-shadow: none;
+}
+::selection {
+    background-color: #777;
+    color: #fff;
+    text-shadow: none;
+}
+/*
+---------------------------------- WEBKIT SCROLL*/
+ ::-webkit-scrollbar {
+}
+::-webkit-scrollbar-track {
+}
+::-webkit-scrollbar-thumb {
+}
+/* ===========================================================
+                     HELPERS
+   =========================================================== */
+
+
+ .divider {
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1rem 0;
+}
+
+.pondering{
+    background:#34495E;
+    opacity:0;
+    visibility: hidden;
+}
+
+/* ===========================================================
+                      CUSTOM FOUNDATION
+   =========================================================== */
+ ::-webkit-input-placeholder, ::-moz-input-placeholder, ::-ms-input-placeholder {
+    color: #ECF0F1;
+}
+textarea {
+    min-height:200px;
+}
+label {
+    color: #ECF0F1;
+}
+label small {
+    color: #E67E22;
+}
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+    -webkit-appearance: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: inherit;
+    border: 2px solid #ECF0F1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+    color: #ECF0F1;
+    display: block;
+    font-size: 0.875rem;
+    margin: 0 0 1rem 0;
+    padding: 0.5rem;
+    height: 2.3125rem;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
+}
+input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, textarea:focus {
+    background: #2C3E50;
+    border-color: #1ABC9C;
+}
+/* panel */
+ .panel {
+    border-color: #34495E;
+    background: #34495E;
+}
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p {
+    color: #ECF0F1;
+}
+/* table */
+ table {
+    background: #34495E;
+    border: solid 1px #34495E;
+}
+table tr.even, table tr.alt, table tr:nth-of-type(even) {
+    background: #2C3E50;
+}
+table thead, table tfoot {
+    background: #1ABC9C;
+}
+table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td {
+    color: #ECF0F1;
+}
+table tr th, table tr td {
+    color: #ECF0F1;
+}
+/* tabs */
+ .tabs dd > a {
+    display: block;
+    background: #34495E;
+    color: #ECF0F1;
+}
+.tabs > dt {
+    display: none;
+}
+.tabs dd.active a {
+    background: #1ABC9C;
+}
+.tabs dd > a:hover {
+    background: #16A085;
+}
+.tabs-content {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    background: #34495E;
+    padding: 0.5rem;
+}
+/* Accordion */
+ .accordion dd > a {
+    background: #34495E;
+    color: #ECF0F1;
+}
+.accordion > dt {
+    display: none;
+}
+.accordion dd.active > a {
+    background: #16A085;
+}
+.accordion .content.active {
+    background: #2C3E50;
+}
+.accordion dd > a:hover {
+    background: #16A085;
+}
+/* Has tip */
+ .has-tip {
+    border-bottom: dotted 1px #16A085;
+    color: #1ABC9C;
+}
+/* thumbnail */
+ .th {
+    border: solid 4px #34495E;
+}
+.clearing-blackout {
+    background: #2C3E50;
+}
+@media only screen and (min-width: 40.063em) {
+    .clearing-assembled .clearing-container .visible-img {
+        background: #34495E;
+    }
+}
+@media only screen and (min-width: 40.063em) {
+    .clearing-assembled .clearing-container .carousel {
+        background: #2C3E50;
+    }
+}
+/* reveal */
+ dialog, .reveal-modal {
+    background-color: #34495E;
+    border: solid 1px #34495E;
+}
+/* ===========================================================
+                      PRELOADER
+   =========================================================== */
+ .preloader {
+    position:fixed;
+    top:0;
+    left:0;
+    background:#fff;
+    background-size:cover;
+    -moz-background-size:cover;
+    margin:0;
+    padding:0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999999;
+    overflow: hidden;
+}
+.preloader img {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+}
+/* ===========================================================
+                      THEMES STYLES
+   =========================================================== */
+ body {
+    color: #ECF0F1;
+    /*transition*/
+    -webkit-transition: background-color 400ms;
+    transition: background-color 400ms;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+img {
+    max-width: 100%;
+}
+img[data-src] {
+    opacity: 0;
+}
+img.loaded {
+    opacity: 1;
+    /*transition*/
+    -webkit-transition: opacity 1.3s ease-in-out;
+    transition: opacity 1.3s ease-in-out;
+}
+/*
+----------------------------------  MENU */
+ #menu {
+    float: left;
+    width: 128px;
+    position: relative;
+    height: 102%;
+    -webkit-transition: width 0.5s ease;
+    transition: width 0.5s ease;
+}
+#menu nav {
+    position: relative;
+}
+.logo {
+    background: url('../img/logo_th.png') no-repeat scroll center center transparent;
+    display: block;
+    position: relative;
+    text-align: center;
+    padding: 0;
+    background-size: contain;
+    -moz-background-size: contain;
+    width: 100%;
+    height: 140px;
+}
+#menu nav > a {
+    display: block;
+    -webkit-box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.5);
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+#menu nav > a:hover {
+    -webkit-box-shadow: inset 0 0 0 4rem rgba(0, 0, 0, 0.13);
+    box-shadow: inset 0 0 0 4rem rgba(0, 0, 0, 0.13);
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+    text-decoration: none;
+}
+#menu nav a img {
+    padding: 1.5rem 0.5rem;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+.wrapper {
+    height: 100%;
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.wrapper {
+    margin-left: 8rem;
+}
+#menu {
+    width: 8rem;
+}
+.capicon {
+    font-size: 3rem;
+    padding: 2rem;
+}
+/*
+----------------------------------  SECTIONS*/
+ .section {
+    z-index: 1;
+    min-height: 420px;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: none;
+    top: 0;
+}
+.show {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+    z-index: 999999999;
+    display: block;
+    /*transition*/
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+section#home {
+    padding-top: 10rem;
+    margin-left: -3rem;
+}
+section#about {
+    padding-top: 10rem;
+}
+section#portfolio {
+    padding-top: 5rem;
+}
+section#services {
+    padding-top: 10em;
+}
+section#contact {
+    padding-top: 10rem;
+}
+/*
+----------------------------------  HOME*/
+
+/* TITLES */
+ .head_title {
+    font-size: 5rem;
+    color: #F15F5F;
+    text-shadow: 0 0.2rem 0.1rem #BD2B2B, 0.1rem 0.3rem 0.1rem #660A0A;
+}
+.subhead_title {
+    font-size: 3rem;
+    color: #ECF0F1;
+    text-shadow: 0 0.2rem 0.1rem #B1B1B1, 0.1rem 0.3rem 0.1rem #303030;
+}
+/* SHARE */
+ .share {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.share li {
+    display: inline-block;
+}
+.share a, .backTo img {
+    text-decoration: none;
+    display: inline-block;
+    background: #E74C3C;
+    border-radius: 100%;
+    -webkit-transition: background 0.5s ease;
+    transition: background 0.5s ease;
+}
+.share a:hover, .backTo img:hover {
+    background: #34495E;
+    -webkit-transition: background 0.5s ease;
+    transition: background 0.5s ease;
+}
+/*
+----------------------------------  ABOUT*/
+ .about_widget {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+.about_widget:before {
+    position: absolute;
+    content:"";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #E74C3C;
+    background: rgba(231, 76, 60, 0.43);
+    -webkit-transition: background 0.5s ease;
+    transition: background 0.5s ease;
+}
+.about_widget:hover:before {
+    background: #E74C3C;
+    background: rgba(231, 76, 60, 0);
+    -webkit-transition: background 0.5s ease;
+    transition: background 0.5s ease;
+}
+.about_caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    background: #2A2A3C;
+    background: rgba(43, 43, 56, 0.87);
+    padding: 0.5em;
+    -webkit-transition: bottom 0.5s ease;
+    transition: bottom 0.5s ease;
+}
+.about_widget:hover .about_caption {
+    bottom: 0;
+    -webkit-transition: bottom 0.5s ease;
+    transition: bottom 0.5s ease;
+}
+.about_name {
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.about_info {
+    font-size: 1.5rem;
+}
+.about_info span {
+    margin-right: 1.5rem;
+}
+/*
+----------------------------------  PORTFOLIO */
+
+/* portafolio */
+ #filter {
+    list-style:none;
+    margin:0;
+}
+#filter li {
+    display:inline-block;
+    list-style:none;
+    margin-left: 0.25em;
+}
+#filter li a {
+    display: inline-block;
+    margin:0;
+    padding: 0.5rem 0;
+    color: #ECF0F1;
+}
+#filter li a:hover {
+    text-decoration: none;
+}
+#filter li {
+    display: inline-block;
+    margin: 0.5rem 0;
+    padding: 0 1rem;
+    background: #34495E;
+    transition:background 0.5s ease;
+}
+#filter li:hover, #filter .active {
+    text-decoration: none;
+    background: #1ABC9C;
+    transition:background 0.5s ease;
+}
+#projects {
+    list-style:none;
+    margin:0 auto;
+}
+#projects li {
+    list-style:none;
+    z-index:10;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 33%;
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
+    -moz-transition:all 1s ease;
+    -webkit-transition:all 1s ease;
+    transition:all 1s ease;
+}
+/* Thumnails */
+ .tumb {
+    background: #293346;
+    color: #95A5A6;
+    position:relative;
+    margin: auto;
+    margin-right:10px;
+    margin-bottom: 20px;
+    -moz-transition:all 0.5s ease;
+    -webkit-transition:all 0.5s ease;
+    transition:all 0.5s ease;
+    overflow: hidden;
+}
+.tumb img {
+    display: block;
+    width:100%;
+    -webkit-transform: scale(2) translatey(-3.5rem);
+    transform: scale(2) translatey(-3.5rem);
+    -moz-transition:all 0.5s ease;
+    -webkit-transition:all 0.5s ease;
+    transition:all 0.5s ease;
+}
+.tumb p {
+    font-size:0.8em;
+    text-align:justify;
+    padding:0px 10px;
+}
+.tumb h4 {
+    text-align:center;
+}
+.tumb:hover img {
+    -webkit-transform: rotate(0deg) scale(1) translatey(0rem);
+    transform: rotate(0deg) scale(1) translatey(0rem);
+    -moz-transition:all 0.5s ease;
+    -webkit-transition:all 0.5s ease;
+    transition:all 0.5s ease;
+}
+.tumb:hover {
+    -moz-transition:all 0.5s ease;
+    -webkit-transition:all 0.5s ease;
+    transition:all 0.5s ease;
+}
+.item_selected {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+    opacity: 0.2;
+    -moz-transition:all 1s ease;
+    -webkit-transition:all 1s ease;
+    transition:all 1s ease;
+}
+.show_info {
+    height:auto !important;
+    -moz-transition:all 1s ease;
+    -webkit-transition:all 1s ease;
+    transition:all 1s ease;
+}
+/*
+---------------------------------- SERVICES*/
+
+/* #Prices plan */
+ #prices .plan {
+    list-style: none;
+    margin: 0 0 20px;
+    text-align: center;
+    overflow: hidden;
+    border: 0.1em solid #ECF0F1;
+    position: relative;
+}
+#prices .plan li {
+    padding: 5px 0;
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
+}
+#prices .plan li.plan-name {
+    font-size: 24px;
+    line-height: 24px;
+}
+#prices .plan li.plan-name h3 {
+    margin: 0;
+    color: #ECF0F1;
+}
+#prices .plan li.plan-price {
+    margin-bottom: 10px;
+    color: white;
+}
+#prices .plan li.plan-price > div {
+    display: inline-block;
+    background-color: #E74C3C;
+    border: 0.1em solid #ECF0F1;
+    padding: 0.5em;
+    font-size: 1.4em;
+    width: 4em;
+    height: 4em;
+}
+#prices .plan li.plan-price > div sup {
+    font-size: 10px;
+    line-height: 10px;
+}
+#prices .plan li.plan-price > div > small {
+    display: block;
+    font-size: 11px;
+}
+#prices .plan li.plan-action {
+    margin-top: 10px;
+    border-top: 0;
+}
+#prices .plan.featured {
+    color: white;
+    background: #1ABC9C;
+    border-color: #1ABC9C;
+}
+#prices .button {
+    border-color: #E74C3C;
+    background: #E74C3C;
+    color: #ECF0F1;
+    transition:all 0.5s ease;
+}
+#prices .button:hover {
+    border-color: #C0392B;
+    background: #C0392B;
+    color: #ECF0F1;
+    text-decoration: none;
+    transition:all 0.5s ease;
+}
+#prices .featured:before {
+    content:"The best";
+    position: absolute;
+    display: block;
+    margin: 0;
+    padding: 0.5rem;
+    width: 100%;
+    top: 4%;
+    left: 35%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: #E74C3C;
+    color: #ECF0F1;
+}
+/*
+---------------------------------- FOOTER */
+ footer#footer, footer#footer a {
+    padding: 0.5rem 0;
+    color: #ECF0F1;
+    margin-left:-2rem;
+}
+/*
+---------------------------------- PORFOLIO ITEMS SECTION */
+ #item_header a{
+    display:inline-block;
+    width: 80px;
+ }
+ #item_header .logo {
+    background: url('../img/logo_th.png') no-repeat scroll center center transparent;
+    display: block;
+    position: relative;
+    text-align: center;
+    padding: 0;
+    background-size: cover;
+    width: 100%;
+    height: 80px;
+}
+header#item_header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: #34495E;
+}
+section#item {
+    margin-top: 3rem;
+}
+div.item_description {
+    padding: 0.5rem;
+}
+.used_colors li span {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+}
+.used_colors {
+    border-top: 1px solid #34495E;
+    border-bottom: 1px solid #34495E;
+    padding: 0.5rem;
+    margin: 1rem auto;
+}
+.tags li, .tags li a {
+    color: #BDC3C7;
+}
+.backTo {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    margin-top: 0.5rem;
+    color: #34495E;
+    transition:all 0.5s ease;
+}
+.backTo:hover {
+    text-decoration: none;
+    color: #ECF0F1;
+    transition:all 0.5s ease;
+}
+.backTo span {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 3rem;
+    color: #ECF0F1;
+    transition:all 0.5s ease;
+}
+.backTo span:hover {
+    color: #F85B5B;
+    transition:all 0.5s ease;
+}
+.orbit-container .orbit-slides-container img {
+    display: block;
+    width: 100%;
+}
+
+
+

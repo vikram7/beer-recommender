@@ -1,30 +1,48 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Beer</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Foundation core CSS -->
+    <link rel="stylesheet" href="css/foundation.css">
+    <!-- Foundation font icons core CSS -->
+    <link rel="stylesheet" href="css/foundation-icons.css">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/app.css">
+    <!-- Media Queries css -->
+    <link rel="stylesheet" href="css/media_queries.css">
+    <!-- Google Web Fonts CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <!-- Favicons -->
+    <link rel="icon" href="../../assets/images/favicon/favicon.ico" type="image/x-icon">
 
-<h1>This is a beer recommendation site</h1>
-<%= flash[:notice] %>
-<div>
-  Click <%= link_to "here", beers_path %> to see all our beers. We have <%= Beer.count %> of them through <%= Brewer.count %> brewers.
-</div>
-<div>
-  <% if user_signed_in? %>
-    <div>
-      Click <%= link_to "here", user_path(current_user.id) %> to see all your reviews and ratings
-    </div>
-    <div>
-      Click <%= link_to "here", users_path %> to see the top 10 users with similar tastes as you.
-    </div>
-  <% end %>
-</div>
-<hr>
-<%= yield %>
 
-</body>
+    <title>Happy Suds</title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <%= flash[:notice] %>
+    <%= render 'layouts/main_navbar' %>
+    <%= render 'layouts/search' %>
+    <%= yield %>
+    <footer id="footer">
+      <div class="row">
+          <div class="large-12 medium-12 columns">
+              <div class="copyright text-center">
+                  <a href="#">Vikram Ramakrishnan</a> &copy; 2014.
+              </div>
+          </div>
+      </div>
+    </footer>
+    <%= javascript_include_tag "application" %>
+
+  </body>
 </html>
