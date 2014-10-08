@@ -1,0 +1,30 @@
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">Happy Suds</a></h1>
+    </li>
+  </ul>
+
+<section class="top-bar-section">
+    <ul class="right">
+      <% if !user_signed_in? %>
+        <li>
+          <a><%= link_to "Sign in", new_user_session_path %></a>
+        </li>
+        <li>
+          <a><%= link_to "Sign up", new_user_registration_path %></a>
+        </li>
+      <% else %>
+        <li>
+          <a><%= link_to "All Our Beers", beers_path %></a>
+        </li>
+        <li>
+          <a><%= link_to "Top 10 Similar Users", users_path %></a>
+        </li>
+        <li>
+          <a><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
+        </li>
+      <% end %>
+    </ul>
+</section>
+</nav>

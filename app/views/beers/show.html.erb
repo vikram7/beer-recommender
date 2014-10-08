@@ -1,4 +1,4 @@
-<h1><%= @beer.name %></h1>
+<div><%= @beer.name %></div>
 
 <div>ABV: <% if @beer.abv == 0.0 %>
   <%= '--' %>
@@ -11,7 +11,7 @@
 <div>Made by: <%= @beer.brewer.name %></div>
 <div>Number of reviews: <%= @beer.reviews.count %></div>
 
-<h5>Add Review</h5>
+<div>Add Review</div>
   <%= form_for [@beer, @review] do |f| %>
     <div>
       <%= f.label :text %>
@@ -24,7 +24,7 @@
     <div><%= f.submit "Submit" %></div>
   <% end %>
 
-<h2>Reviews:</h2>
+<div>Reviews:<div>
 <% @beer.reviews.each do |review| %>
   <p>
   User <%= link_to review.user.profile_name, user_path(review.user.id) %> gave it a rating of <%= review.taste %><br>

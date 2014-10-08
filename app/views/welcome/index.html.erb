@@ -1,14 +1,11 @@
-<div>
-  This is a beer recommender. It is a based on a machine learning algorithm.
-</div>
+<section class="section show" id="home">
+    <div class="row">
+        <div class="large-6 medium-centered small-centered columns">
+            <h1 class="head_title text-center">Happy Suds</h1>
+            <h2 class="subhead_title text-center">Programmatic Beer Recommendations </h2>
+            <p class="text-center">An AI that brings you machine learning based beer recommendations.</p>
+        </div>
+        <%= render 'layouts/search' %>
+    </div>
+</section>
 
-<% if !user_signed_in? %>
-  <div>
-    <%= link_to "Sign in", new_user_session_path %>
-  </div>
-  <div>
-    <%= link_to "Sign up", new_user_registration_path %>
-  </div>
-<% else %>
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-<% end %>
