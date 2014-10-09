@@ -1,7 +1,7 @@
 <nav class="top-bar docs-bar hide-for-small" data-topbar="">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="#">Happy Suds</a></h1>
+      <h1><a href="#">Hoppy Suds</a></h1>
     </li>
   </ul>
 
@@ -18,9 +18,14 @@
         <li>
           <a><%= link_to "All Our Beers", beers_path %></a>
         </li>
-        <li>
-          <a><%= link_to "Top 10 Similar Users", users_path %></a>
-        </li>
+        <% if Score.dictionary[current_user.id.to_s] != nil %>
+          <li>
+            <a><%= link_to "Top 10 Similar Users", users_path %></a>
+          </li>
+          <li>
+            <a><%= link_to "See my Reviews", user_path(current_user.id) %></a>
+          </li>
+        <% end %>
         <li>
           <a><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
         </li>

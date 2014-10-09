@@ -1,5 +1,9 @@
 <div><%= @beer.name %></div>
 
+<div>
+  <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + @beer.id.to_s + ".jpg") %>
+</div>
+
 <div>ABV: <% if @beer.abv == 0.0 %>
   <%= '--' %>
   <% else %>
@@ -27,8 +31,14 @@
 <div>Reviews:<div>
 <% @beer.reviews.each do |review| %>
   <p>
-  User <%= link_to review.user.profile_name, user_path(review.user.id) %> gave it a rating of <%= review.taste %><br>
-  <%= review.text %><br>
-  <small>by user <%= review.user.profile_name %> on <%= review.created_at %></small>
+    <% if user_signed_in? %>
+      User <%= link_to review.user.profile_name, user_path(review.user.id) %> gave it a rating of <%= review.taste %><br>
+    <% else %>
+      User <%= review.user.profile_name %> gave it a rating of <%= review.taste %><br>
+    <% end %>
+    <%= review.text %><br>
+      <small>
+        by user <%= review.user.profile_name %> on <%= review.created_at %>
+      </small>
   </p>
 <% end %>

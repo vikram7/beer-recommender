@@ -1,4 +1,5 @@
 class Beer < ActiveRecord::Base
+  paginates_per 10
   self.primary_key = "beer_id"
 
   def self.search(query)

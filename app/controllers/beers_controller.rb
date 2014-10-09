@@ -2,9 +2,9 @@ class BeersController < ApplicationController
 
   def index
     if params[:search] == nil
-      @beers = Beer.order(name: :asc)
+      @beers = Beer.order(name: :asc).page params[:page]
     else
-      @beers = Beer.search(params[:search]).order(name: :asc)
+      @beers = Beer.search(params[:search]).order(name: :asc).page params[:page]
     end
   end
 
