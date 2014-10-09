@@ -2,7 +2,8 @@ Beer Recommendation Engine
 
 - October 9, 2014
   - adjusted navbar so that a first time user doesn't see top ten option until dictionary has been repopulated with that new user's reviews
-  : add pagination
+  - added pagination
+  : look at SQL commands to replace ruby work for Score Module
   : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
   : product recs
   : eager loading
