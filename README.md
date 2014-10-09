@@ -1,8 +1,13 @@
 Beer Recommendation Engine
 
+- October 9, 2014
+  - adjusted navbar so that a first time user doesn't see top ten option until dictionary has been repopulated with that new user's reviews
+  : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
+
 - October 8, 2014
   - installed foundation, which slowed down views dramatically
   - installed navbar
+  - worked on Score module
   : product recs
   : eager loading
   : background job for top 10 similar users (calculated per sign in) -- devise has after sign in path + add event that fires up a background job
