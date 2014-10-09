@@ -48,7 +48,7 @@ module Score
         scores << [simpearson(o_user_id, c_user_id), o_user_id]
       end
       scores = scores.sort.reverse
-      scores.take(10)
+      scores.take(11)
     end
 
     def unrated_beers(o_user_id, c_user_id)
@@ -165,6 +165,5 @@ module Score
         end
       end
     end
-
   end
 end

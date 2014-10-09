@@ -22,6 +22,9 @@
           <li>
             <a><%= link_to "Top 10 Similar Users", users_path %></a>
           </li>
+          <li>
+            <a><%= link_to "See my Reviews", user_path(current_user.id) %></a>
+          </li>
         <% end %>
         <li>
           <a><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
