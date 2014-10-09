@@ -1,6 +1,10 @@
 module Score
-@dictionary = Dictionary.last.payload
-@all_beers = Beer.all
+  a = Dictionary.last.payload
+  (826..7000).each do |x|
+    a.delete(x.to_s)
+  end
+  @dictionary = a
+  @all_beers = Beer.all
   class << self
     def simpearson(o_user_id, c_user_id)
     #calculates similarity score between two users; o_user is the other user hash; c_user is the current user hash
@@ -130,9 +134,37 @@ module Score
       c_user_id = c_user_id.to_s
       total = expected_ratings_of_beers_by_beer(c_user_id)[beer_id].inject(:+)
       sim_sum = beer_sim_sum(beer_id, c_user_id)
-      total/sim_sum
+      if total == nil
+        return 0
+      else
+        return total/sim_sum
+      end
+    end
+
+    def beer_predictions(user_id)
+      user_id = user_id.to_s
+      predictions = Hash.new
+      count = 1
+      Beer.limit(100).each do |beer, ratings|
+        total = total_by_sim_sum(beer.id, user_id)
+        predictions[beer.id] = total
+        puts count += 1
+        if beer.id == 31622
+          puts "***************"
+        end
+        puts beer.id.to_s + ": " + total.to_s
+      end
+      predictions
+    end
+
+    def which_beers_are_not_nil
+      Beer.all.each do |beer, ratings|
+        a = beer_sim_sum(beer.id, 8375)
+        if a != nil
+          puts beer.id.to_s + ": " + a.to_s
+        end
+      end
     end
 
   end
-
 end
