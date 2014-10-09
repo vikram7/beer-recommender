@@ -2,17 +2,18 @@ Beer Recommendation Engine
 
 - October 9, 2014
   - adjusted navbar so that a first time user doesn't see top ten option until dictionary has been repopulated with that new user's reviews
+  : add pagination
   : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
-
-- October 8, 2014
-  - installed foundation, which slowed down views dramatically
-  - installed navbar
-  - worked on Score module
   : product recs
   : eager loading
   : background job for top 10 similar users (calculated per sign in) -- devise has after sign in path + add event that fires up a background job
   : redis stuff
   : visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
+
+- October 8, 2014
+  - installed foundation, which slowed down views dramatically
+  - installed navbar
+  - worked on Score module
 
 - October 7, 2014
   - simpearson calculation was resulting in a denominator of 0 for two users with no mutually rated beers. fixed so that method returns 0 if there are no mutually rated beers (as opposed to "NaN" which was getting returned before)
