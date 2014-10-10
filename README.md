@@ -1,6 +1,13 @@
 Beer Recommendation Engine
 
 - October 10, 2014
+  - product recs
+  : benchmark SQL vs Ruby for simpearson
+  : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
+  : eager loading
+  : background job for top 10 similar users (calculated per sign in) -- devise has after sign in path + add event that fires up a background job
+  : redis stuff
+  : visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
 
 - October 9, 2014
   - adjusted navbar so that a first time user doesn't see top ten option until dictionary has been repopulated with that new user's reviews
@@ -12,13 +19,6 @@ Beer Recommendation Engine
   - Cut out most methods from Score module and combined the necessary ones into the recommendations method -- this reduced the recommendation time from 4 hours to 3 minutes
   - Adjusting the minimum correlation to 0.50 reduced the recommendation time from 3 minutes to 19 seconds)
   - I think the dictionary is faster to traverse in ruby than tables in SQL. If that's the case, maybe I should make dictionaries for everything
-  : benchmark SQL vs Ruby for simpearson
-  : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
-  : product recs
-  : eager loading
-  : background job for top 10 similar users (calculated per sign in) -- devise has after sign in path + add event that fires up a background job
-  : redis stuff
-  : visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
 
 - October 8, 2014
   - installed foundation, which slowed down views dramatically
