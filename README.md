@@ -10,7 +10,8 @@ Beer Recommendation Engine
     - SQL for pearson corr: ActiveRecord::Base.connection.execute("SELECT corr(u1.taste, u2.taste) from reviews u1 inner join reviews u2 on u2.beer_id = u1.beer_id where u2.user_id = 2 and u1.user_id = 1")
     - SQL for top matches:
   - Cut out most methods from Score module and combined the necessary ones into the recommendations method -- this reduced the recommendation time from 4 hours to 3 minutes
-  - Adjusting the minimum correlation to 0.50 reduced the recommendation time from 3 minutes to 19 seconds
+  - Adjusting the minimum correlation to 0.50 reduced the recommendation time from 3 minutes to 19 seconds)
+  - I think the dictionary is faster to traverse in ruby than tables in SQL. If that's the case, maybe I should make dictionaries for everything
   : benchmark SQL vs Ruby for simpearson
   : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
   : product recs
