@@ -1,0 +1,11 @@
+<div>
+  Your Top Ten Recommendations
+</div>
+<ul>
+  <% @recommendations.take(10).each do |recommendation| %>
+    <li>
+      <%= Beer.find_by(beer_id: recommendation.first).name %><br>
+      Expected Rating: <%= recommendation.last %>
+    </li>
+  <% end %>
+</ul>
