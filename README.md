@@ -3,6 +3,7 @@ Beer Recommendation Engine
 - October 10, 2014
   - product recs
   : benchmark SQL vs Ruby for simpearson
+  : look into sidekiq
   : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
   : eager loading
   : background job for top 10 similar users (calculated per sign in) -- devise has after sign in path + add event that fires up a background job

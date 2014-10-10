@@ -11,6 +11,7 @@ class BeersController < ApplicationController
   def show
     @review = Review.new
     @beer = Beer.find(params[:id])
+    @reviews = @beer.reviews
     @average = 0
     @beer.reviews.each do |review|
       @average += review.taste
