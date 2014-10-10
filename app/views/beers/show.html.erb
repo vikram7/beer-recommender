@@ -29,7 +29,7 @@
   <% end %>
 
 <div>Reviews:<div>
-<% @beer.reviews.each do |review| %>
+<% @reviews.each do |review| %>
   <p>
     <% if user_signed_in? %>
       User <%= link_to review.user.profile_name, user_path(review.user.id) %> gave it a rating of <%= review.taste %><br>
