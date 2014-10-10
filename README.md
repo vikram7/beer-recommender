@@ -1,9 +1,17 @@
 Beer Recommendation Engine
 
+- October 10, 2014
+
 - October 9, 2014
   - adjusted navbar so that a first time user doesn't see top ten option until dictionary has been repopulated with that new user's reviews
   - added pagination
-  : look at SQL commands to replace ruby work for Score Module
+  - looked at SQL commands to replace ruby work for Score Module
+    - SQL for average beer rating: ActiveRecord::Base.connection.execute("SELECT beer_id, AVG(taste) FROM reviews GROUP BY beer_id")
+    - SQL for pearson corr: ActiveRecord::Base.connection.execute("SELECT corr(u1.taste, u2.taste) from reviews u1 inner join reviews u2 on u2.beer_id = u1.beer_id where u2.user_id = 2 and u1.user_id = 1")
+    - SQL for top matches:
+  - Cut out most methods from Score module and combined the necessary ones into the recommendations method -- this reduced the recommendation time from 4 hours to 3 minutes
+  - Adjusting the minimum correlation to 0.50 reduced the recommendation time from 3 minutes to 19 seconds
+  : benchmark SQL vs Ruby for simpearson
   : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
   : product recs
   : eager loading
@@ -51,16 +59,7 @@ Current Todos:
 
 - create visual diagram of how the recommendation engine works
 
-- figure out why only 86k / 100k records are getting uploaded:
-```
-Creating brewer with id: 5546
-Creating beer with name: La Saint-Pierre Blonde de l`Oncle Hansi
-rake aborted!
-ActiveRecord::RecordInvalid: Validation failed: Name has already been taken
-```
-
 - add ! to create methods in seeders so if it  fails if create/save doesn't work: "you should try using #create! instead of #create so that you receive an error if the create fails. It's also probably good to use #find_or_create! so that you can run the script multiple times without creating duplicates."
-- add indexes
 
 - butttt I think you want to look at this for why your data isn’t all getting in there https://github.com/vikram7/beer-recommender/blob/master/app/models/review.rb#L9-L10 you’re saying that a user can only review one beer as having a particular taste rating. so as a user i couldn’t review two different beers as having a 3 for taste
 

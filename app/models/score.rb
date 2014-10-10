@@ -51,119 +51,40 @@ module Score
       scores.take(11)
     end
 
-    def unrated_beers(o_user_id, c_user_id)
-      # find which beers current user has not rated compared to another user
-      o_user_id = o_user_id.to_s
-      c_user_id = c_user_id.to_s
-      o_user_beers = []
-      @dictionary[o_user_id].each do |beer_id, taste|
-        o_user_beers << beer_id
-      end
-      c_user_beers = []
-      @dictionary[c_user_id].each do |beer_id, taste|
-        c_user_beers << beer_id
-      end
-      o_user_beers - c_user_beers
-    end
+    def recommendations(c_user_id)
+      totals = Hash.new
+      sim_sums = Hash.new
 
-    def expected_values_of_unrated_beers(o_user_id, c_user_id)
-      o_user_id = o_user_id.to_s
-      c_user_id = c_user_id.to_s
-      beers = unrated_beers(o_user_id, c_user_id)
-      sim_score = simpearson(o_user_id, c_user_id)
-      expected_values = Hash.new
-      beers.each do |beer_id|
-        expected_values[beer_id] = @dictionary[o_user_id][beer_id] * sim_score
-      end
-      expected_values
-    end
+      User.all.each do |person|
+        if person.id == c_user_id
+          next
+        end
 
-    def all_expected_values_of_unrated_beers(c_user_id)
-      other_users = @dictionary.keys
-      c_user_id = c_user_id.to_s
-      expected_values = Hash.new
-      other_users.each do |o_user_id|
-        expected_values[o_user_id] = expected_values_of_unrated_beers(o_user_id, c_user_id)
-      end
-      expected_values
-    end
+        sim = simpearson(c_user_id, person.id)
 
-    def expected_ratings_of_beers_by_beer(c_user_id)
-      other_users = @dictionary.keys
-      c_user_id = c_user_id.to_s
-      expected_values = Hash.new([])
-      all_expected_values_of_unrated_beers(c_user_id).each do |user_id, beer_ratings|
-        beer_ratings.each do |beer_id, rating|
-          expected_values[beer_id] += [rating] if rating > 0
+        if sim == nil || sim <= 0.5
+          next
+        end
+
+        person_ratings = User.where(id: person.id).first.reviews
+        user_ratings = User.find(c_user_id).reviews
+
+        person_ratings.each do |rating|
+          if !user_ratings.include?(rating)
+            totals.default = 0
+            totals[rating.beer_id] += rating.taste * sim
+            sim_sums.default = 0
+            sim_sums[rating.beer_id] += sim
+          end
         end
       end
-      expected_values
-    end
 
-    def other_user_sims(c_user_id)
-      other_users = @dictionary.keys
-      c_user_id = c_user_id.to_s
-      similarities = Hash.new(0)
-      other_users.each do |o_user_id, ratings|
-        similarities[o_user_id] = simpearson(o_user_id, c_user_id)
+      rankings = Hash.new
+      totals.each do |beer_id, sim_score|
+          rankings[beer_id] = sim_score / sim_sums[beer_id]
       end
-      similarities
-    end
 
-    def user_reviewed_beer?(user_id, beer_id)
-      user_id = user_id.to_s
-      beer_id = beer_id.to_s
-      @dictionary[user_id].has_key?(beer_id)
-    end
-
-    def beer_sim_sum(beer_id, c_user_id)
-      c_user_id = c_user_id.to_s
-      beer_id = beer_id.to_s
-      other_users = @dictionary.keys
-      sim_sums = Hash.new([])
-      other_users.each do |user_id, ratings|
-        if user_reviewed_beer?(user_id, beer_id)
-          sim = simpearson(user_id, c_user_id)
-          sim_sums[beer_id] += [sim] if sim > 0
-        end
-      end
-      sim_sums[beer_id].inject(:+)
-    end
-
-    def total_by_sim_sum(beer_id, c_user_id)
-      beer_id = beer_id.to_s
-      c_user_id = c_user_id.to_s
-      total = expected_ratings_of_beers_by_beer(c_user_id)[beer_id].inject(:+)
-      sim_sum = beer_sim_sum(beer_id, c_user_id)
-      if total == nil
-        return 0
-      else
-        return total/sim_sum
-      end
-    end
-
-    def beer_predictions(user_id)
-      user_id = user_id.to_s
-      predictions = Hash.new
-      count = 1
-      Beer.limit(100).each do |beer, ratings|
-        total = total_by_sim_sum(beer.id, user_id)
-        predictions[beer.id] = total
-        puts count += 1
-        puts beer.id.to_s + ": " + total.to_s
-      end
-      predictions
-    end
-
-    def which_beers_are_not_nil
-      Beer.all.each do |beer, ratings|
-        a = beer_sim_sum(beer.id, 8375)
-        b = total_by_sim_sum(beer.id, 8375)
-        if a != nil
-          puts beer.id.to_s + ":" + b.to_s
-          puts beer.id.to_s + ": " + a.to_s
-        end
-      end
+      rankings.sort_by{|beer_id, taste| -taste}
     end
   end
 end
