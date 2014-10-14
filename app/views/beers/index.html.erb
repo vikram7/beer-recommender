@@ -1,16 +1,27 @@
 <ul>
 <% @beers.each do |beer| %>
-  <li>
-  Name: <%= link_to beer.name, beer_path(beer) %><br>
-  Brewer:<%= beer.brewer.name %><br>
-  Style: <%= beer.style.style %><br>
-  ABV:
-   <% if beer.abv == 0.0 %>
-    <%= '--' %><br>
-    <% else %>
-      <%= beer.abv %>%<br>
-  <% end %>
-  </li>
+  <div class="item">
+    <div>
+      <%= link_to beer.name, beer_path(beer) %>
+    </div>
+    <div>
+      <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + beer.id.to_s + ".jpg", size: "100x100") %>
+    </div>
+    <div>
+      <%= beer.brewer.name %>
+    </div>
+    <div>
+      Style: <%= beer.style.style %>
+    </div>
+    <div>
+      ABV:
+       <% if beer.abv == 0.0 %>
+        <%= '--' %>
+        <% else %>
+          <%= beer.abv %>%
+      <% end %>
+    </div>
+  </div>
 <% end %>
 </ul>
 

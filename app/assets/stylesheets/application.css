@@ -26,6 +26,17 @@ body {
   color: #ECF0F1;
   line-height: 1.4;
   margin-bottom: 0.8125rem;
-  background: #2C3E50;
+  background: #D17519;
 }
 
+.item {
+  float:left;
+  margin-right:10px;
+  width:300px;
+  height:500px;
+  background-color: orange;
+  margin-top:10px;
+  border: 2px solid;
+  border-radius: 25px;
+  padding-left: 50px
+}
