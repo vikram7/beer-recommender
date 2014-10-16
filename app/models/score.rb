@@ -81,7 +81,9 @@ module Score
 
       beer_rankings = Hash.new
       totals.each do |beer_id, sim_score|
+        if !User.find(c_user_id).reviews.find_by(beer_id: beer_id)
           beer_rankings[beer_id] = sim_score / sim_sums[beer_id]
+        end
       end
 
       beer_rankings.sort_by{|beer_id, taste| -taste}

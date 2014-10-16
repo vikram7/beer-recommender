@@ -12,17 +12,8 @@
    =========================================================== */
 
 /* Body */
- html, body {
-    position: relative;
-    height: 99%;
-}
-body {
-    font-family:"Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-    color: #ECF0F1;
-    line-height: 1.4;
-    margin-bottom: 0.8125rem;
-    background: #2C3E50;
-}
+
+
 /*
 ----------------------------------  LINKS */
  a {
