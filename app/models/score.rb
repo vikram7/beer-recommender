@@ -1,10 +1,15 @@
 module Score
   @dictionary = Dictionary.last.payload
-  @all_beers = Beer.all
+  @similarity = Similarity.last.payload
+  # @all_beers = Beer.all
   class << self
 
     def dictionary
       @dictionary
+    end
+
+    def similarity
+      @similarity
     end
 
     def simpearson(o_user_id, c_user_id)
@@ -43,12 +48,16 @@ module Score
     def top_matches(c_user_id)
     # returns top 10 users with similar tastes as another user
       c_user_id = c_user_id.to_s
-      scores = []
-      @dictionary.each do |o_user_id, ratings|
-        scores << [simpearson(o_user_id, c_user_id), o_user_id]
+      scores = Array.new
+      # @dictionary.each do |o_user_id, ratings|
+      #   scores << [simpearson(o_user_id, c_user_id), o_user_id]
+      # end
+      # scores = scores.sort.reverse
+      # scores.take(11)
+      scores = @similarity[c_user_id].sort_by do |o_user_id, sim_score|
+        -sim_score
       end
-      scores = scores.sort.reverse
-      scores.take(11)
+      scores.take(10)
     end
 
     def recommendations(c_user_id)
