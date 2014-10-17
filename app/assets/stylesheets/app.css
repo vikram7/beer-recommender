@@ -365,12 +365,14 @@ section#contact {
  .head_title {
     font-size: 5rem;
     color: #F15F5F;
-    text-shadow: 0 0.2rem 0.1rem #BD2B2B, 0.1rem 0.3rem 0.1rem #660A0A;
+
+    font-family: "Lucida Console", Courier, monospace;
 }
 .subhead_title {
     font-size: 3rem;
     color: #ECF0F1;
-    text-shadow: 0 0.2rem 0.1rem #B1B1B1, 0.1rem 0.3rem 0.1rem #303030;
+
+    font-family: "Lucida Console", Courier, monospace;
 }
 /* SHARE */
  .share {

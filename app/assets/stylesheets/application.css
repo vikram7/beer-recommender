@@ -23,10 +23,10 @@ html, body {
 
 body {
   font-family:"Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  color: #ECF0F1;
+  color: #F15F5F;
   line-height: 1.4;
   margin-bottom: 0.8125rem;
-  background: #D17519;
+  background: #f8f8f8;
 }
 
 .item {
@@ -34,9 +34,57 @@ body {
   margin-right:10px;
   width:300px;
   height:500px;
-  background-color: orange;
+  background-color: white;
   margin-top:10px;
-  border: 2px solid;
-  border-radius: 25px;
-  padding-left: 50px
+  padding-left: 50px;
+  color: black;
+}
+
+.item a:link {
+  color: black;
+}
+
+.item:hover {
+  background-color: #7f8c8d;
+}
+
+/*#cf6200    #ff9201    #ffb920
+#fcecba    #fae24a    #beaf1b
+#144d1a   */
+.top-bar {
+  background-color: #ffcc00;
+}
+
+.user {
+  float:left;
+  margin-right:10px;
+  width:300px;
+  height:500px;
+  background-color: white;
+  margin-top:10px;
+  padding-left: 50px;
+  color: black;
+}
+
+.subhead_title {
+  font-size: 2rem;
+  color: #F15F5F;
+  font-family:"Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+.head_title {
+  font-size: 4rem;
+  color: #F15F5F;
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+.search_title {
+  font-size: 1rem;
+  color: #F15F5F;
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+.copyright {
+  color: #F15F5F;
+  font-family: "Lucida Console", Courier, monospace;
 }

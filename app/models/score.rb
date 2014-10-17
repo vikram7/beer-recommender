@@ -49,15 +49,15 @@ module Score
     # returns top 10 users with similar tastes as another user
       c_user_id = c_user_id.to_s
       scores = Array.new
-      # @dictionary.each do |o_user_id, ratings|
-      #   scores << [simpearson(o_user_id, c_user_id), o_user_id]
-      # end
-      # scores = scores.sort.reverse
-      # scores.take(11)
-      scores = @similarity[c_user_id].sort_by do |o_user_id, sim_score|
-        -sim_score
+      @dictionary.each do |o_user_id, ratings|
+        scores << [simpearson(o_user_id, c_user_id), o_user_id]
       end
-      scores.take(10)
+      scores = scores.sort.reverse
+      scores.take(11)
+      # scores = @similarity[c_user_id].sort_by do |o_user_id, sim_score|
+      #   -sim_score
+      # end
+      # scores.take(10)
     end
 
     def recommendations(c_user_id)
@@ -70,6 +70,7 @@ module Score
         end
 
         sim = simpearson(c_user_id, o_user.id)
+        # sim = @similarity[c_user_id][o_user.id]
 
         if sim == nil || sim <= 0.5
           next
