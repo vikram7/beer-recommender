@@ -1,11 +1,9 @@
 <div>
-  Here are the top 10 users with similar tastes in beer as you
+  <ul>
+    <% @top_ten.each do |user| %>
+      <div class="user">
+        <%= link_to User.find(user.last).profile_name, user_path(user.last) %>: <%= number_to_percentage(user.first * 100, precision: 0) %>
+      </div>
+    <% end %>
+  </ul>
 </div>
-
-<ul>
-  <% @top_ten.each do |user| %>
-    <div class="user">
-      <%= link_to User.find(user.last).profile_name, user_path(user.last) %>: <%= number_to_percentage(user.first * 100, precision: 0) %>
-    </div>
-  <% end %>
-</ul>

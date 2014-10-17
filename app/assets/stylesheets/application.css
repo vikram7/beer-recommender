@@ -66,25 +66,72 @@ body {
   color: black;
 }
 
-.subhead_title {
-  font-size: 2rem;
-  color: #F15F5F;
-  font-family:"Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-}
-
 .head_title {
   font-size: 4rem;
-  color: #F15F5F;
+  color: black;
   font-family: "Lucida Console", Courier, monospace;
+}
+
+.subhead_title {
+  font-size: 2rem;
+  color: black;
+  font-family:"Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 
 .search_title {
   font-size: 1rem;
-  color: #F15F5F;
+  color: black;
   font-family: "Lucida Console", Courier, monospace;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
 .copyright {
-  color: #F15F5F;
+  color: black;
   font-family: "Lucida Console", Courier, monospace;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  font-size: 1rem;
+  background: #ffcc00;
+}
+
+
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #DDD;
+  border-left-width: 0;
+}
+
+.pagination {
+  border-left: 1px solid #000;
+  .first {
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .prev {
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .page{
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .next{
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .last{
+    padding : 0;
+    float: none;
+    border: none;
+  }
 }

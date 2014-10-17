@@ -3,6 +3,7 @@ namespace :similarity do
   task :sim => :environment do
     @similarity = Hash.new
     User.all.each do |user1|
+      start = Time.now
       right = Hash.new
       User.all.each do |user2|
         if user1 != user2
