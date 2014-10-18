@@ -14,8 +14,10 @@ class ReviewsController < ApplicationController
       right = Hash.new(0)
       right[params["beer_id"].to_s] = review_params["taste"].to_i
       dict = Dictionary.find(Dictionary.last.id)
-      dict.payload[current_user.id.to_s] = Hash.new
-      dict.payload[current_user.id.to_s][params["beer_id"].to_s] = review_params["taste"].to_i
+      if dict.payload[current_user.id.to_s] == nil
+        dict.payload[current_user.id.to_s] = Hash.new
+      end
+      dict.payload[current_user.id.to_s][params["beer_id"].to_s] = review_params["taste"].to_f
       dict.update_column(:payload, dict.payload)
       dict.save
       flash[:notice] = "Review created successfully"
