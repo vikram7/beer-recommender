@@ -10,32 +10,33 @@
           <div>
             <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + review.beer.id.to_s + ".jpg", size: "100x100") %>
           </div>
+          <div class="beer_info">
+            <div class="panel">
+              <div>
+                Style: <%= review.beer.style.style %>
+              </div>
+              <div>ABV:
+                <% if review.beer.abv == 0.0 %>
+                  <%= '--' %>
+                  <% else %>
+                  <%= review.beer.abv %>%
+                <% end %>
+              </div>
+            </div>
+          </div>
           <div>
             Your Rating: <%= review.taste %>
           </div>
-          <div>
-            Brewer:<%= review.beer.brewer.name %>
-          </div>
-          <div>
-            Style: <%= review.beer.style.style %>
-          </div>
-          <div>ABV:
-            <% if review.beer.abv == 0.0 %>
-              <%= '--' %>
-              <% else %>
-              <%= review.beer.abv %>%
-            <% end %>
-          </div>
-    </div>
+        </div>
         <% end %>
     </div>
     </ul>
   <% else %>
-    <div>
+    <div class="panel">
       <%= @user.profile_name %>'s reviews and ratings
-    </div>
-    <div>
-      You have a <%= '%.0f' % (Score.simpearson(current_user.id, @user.id) * 100) %>% similarity with <%= @user.profile_name %>
+      <div>
+        You have a <%= '%.0f' % (Score.simpearson(current_user.id, @user.id) * 100) %>% similarity with <%= @user.profile_name %>
+      </div>
     </div>
 
     <ul>

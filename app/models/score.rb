@@ -1,6 +1,7 @@
 module Score
   @dictionary = Dictionary.last.payload
   @similarity = Similarity.last.payload
+
   # @all_beers = Beer.all
   class << self
 
@@ -10,6 +11,13 @@ module Score
 
     def similarity
       @similarity
+    end
+
+    def beer_average_rating(beer_id)
+      beer_id = beer_id.to_s
+      @all_averages = ActiveRecord::Base.connection.execute("SELECT beer_id, AVG(taste) FROM reviews GROUP BY beer_id").to_a
+      output = @all_averages.find {|x| x["beer_id"] == beer_id}
+      output["avg"]
     end
 
     def simpearson(o_user_id, c_user_id)
