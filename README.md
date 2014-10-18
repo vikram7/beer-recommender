@@ -5,6 +5,10 @@ Beer Recommendation Engine
   - added animated beers to similar users page
   - updated styling
   - added average method for beer ratings through SQL aggregator in Score Module
+  - deployed, CSS is different though versus local version and need to figure out why; pagination is off in deployed version too and also need to figure this out
+  : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
+  : look into sidekiq
+  : visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
 
 - October 17, 2014
   - added SQL commands to replace ruby work in Score Module. this sped up recommendation calculator by a ton (went from 19 seconds down to 4 after this)
@@ -12,9 +16,6 @@ Beer Recommendation Engine
 
 - October 16, 2014
   - working on rewriting the Score Module to work with a JSON instead of repeated database queries
-  : look into sidekiq
-  : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
-  : visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
 
 - October 15, 2014
   - more styling on beers pages
