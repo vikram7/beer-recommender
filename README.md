@@ -6,7 +6,11 @@ Beer Recommendation Engine
   - updated styling
   - added average method for beer ratings through SQL aggregator in Score Module
   - deployed, CSS is different though versus local version and need to figure out why; pagination is off in deployed version too and also need to figure this out
-  : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
+  - HIGH PRIORITY TODOS
+    - need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
+    - update css on deployed version so it matches dev version
+    - fix beer flask in css
+    - add minimum # of beer review notification
   : look into sidekiq
   : visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
 
