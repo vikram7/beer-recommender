@@ -23,10 +23,10 @@ html, body {
 
 body {
   font-family:"Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  color: #ECF0F1;
+  color: #F15F5F;
   line-height: 1.4;
   margin-bottom: 0.8125rem;
-  background: #D17519;
+  background: #f8f8f8;
 }
 
 .item {
@@ -34,9 +34,104 @@ body {
   margin-right:10px;
   width:300px;
   height:500px;
-  background-color: orange;
+  background-color: white;
   margin-top:10px;
-  border: 2px solid;
-  border-radius: 25px;
-  padding-left: 50px
+  padding-left: 50px;
+  color: black;
+}
+
+.item a:link {
+  color: black;
+}
+
+.item:hover {
+  background-color: #7f8c8d;
+}
+
+/*#cf6200    #ff9201    #ffb920
+#fcecba    #fae24a    #beaf1b
+#144d1a   */
+.top-bar {
+  background-color: #ffcc00;
+}
+
+.user {
+  float:left;
+  margin-right:10px;
+  width:300px;
+  height:500px;
+  background-color: white;
+  margin-top:10px;
+  padding-left: 50px;
+  color: black;
+}
+
+.head_title {
+  font-size: 4rem;
+  color: black;
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+.subhead_title {
+  font-size: 2rem;
+  color: black;
+  font-family:"Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+.search_title {
+  font-size: 1rem;
+  color: black;
+  font-family: "Lucida Console", Courier, monospace;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.copyright {
+  color: black;
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  font-size: 1rem;
+  background: #ffcc00;
+}
+
+
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #DDD;
+  border-left-width: 0;
+}
+
+.pagination {
+  border-left: 1px solid #000;
+  .first {
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .prev {
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .page{
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .next{
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .last{
+    padding : 0;
+    float: none;
+    border: none;
+  }
 }

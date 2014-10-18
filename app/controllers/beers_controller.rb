@@ -2,10 +2,11 @@ class BeersController < ApplicationController
 
   def index
     if params[:search] == nil
-      @beers = Beer.order(name: :asc).page params[:page]
+      @beers = Beer.order(name: :asc).page(params[:page]).includes(:brewer, :style)
     else
-      @beers = Beer.search(params[:search]).order(name: :asc).page params[:page]
+      @beers = Beer.search(params[:search]).order(name: :asc).page(params[:page]).includes(:brewer, :style)
     end
+
   end
 
   def show
@@ -26,7 +27,7 @@ class BeersController < ApplicationController
   private
 
   def beer_params
-    # params.require(:restaurant).permit(:name, :address, :city, :state, :zip_code, :description, :category)
+
   end
 
 end

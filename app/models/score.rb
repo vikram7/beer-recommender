@@ -1,10 +1,15 @@
 module Score
   @dictionary = Dictionary.last.payload
-  @all_beers = Beer.all
+  @similarity = Similarity.last.payload
+  # @all_beers = Beer.all
   class << self
 
     def dictionary
       @dictionary
+    end
+
+    def similarity
+      @similarity
     end
 
     def simpearson(o_user_id, c_user_id)
@@ -43,17 +48,27 @@ module Score
     def top_matches(c_user_id)
     # returns top 10 users with similar tastes as another user
       c_user_id = c_user_id.to_s
-      scores = []
+      scores = Array.new
       @dictionary.each do |o_user_id, ratings|
         scores << [simpearson(o_user_id, c_user_id), o_user_id]
       end
       scores = scores.sort.reverse
       scores.take(11)
+      # scores = @similarity[c_user_id].sort_by do |o_user_id, sim_score|
+      #   -sim_score
+      # end
+      # scores.take(10)
     end
 
     def recommendations(c_user_id)
       totals = Hash.new
       sim_sums = Hash.new
+      # c_user_ratings = User.find(c_user_id).reviews
+      c_user_ratings = ActiveRecord::Base.connection.execute("SELECT * FROM reviews WHERE reviews.user_id =#{ActiveRecord::Base.sanitize(c_user_id)}").to_a
+      c_user_beers = Array.new
+      c_user_ratings.each do |rating|
+        c_user_beers << rating["beer_id"]
+      end
 
       User.all.each do |o_user|
         if o_user.id == c_user_id
@@ -61,27 +76,29 @@ module Score
         end
 
         sim = simpearson(c_user_id, o_user.id)
+        # sim = @similarity[c_user_id][o_user.id]
 
         if sim == nil || sim <= 0.5
           next
         end
 
-        o_user_ratings = User.where(id: o_user.id).first.reviews
-        c_user_ratings = User.find(c_user_id).reviews
+        o_user_ratings = ActiveRecord::Base.connection.execute("SELECT * FROM reviews WHERE reviews.user_id =#{ActiveRecord::Base.sanitize(o_user.id)}").to_a
+        # o_user_ratings = User.where(id: o_user.id).first.reviews
+        binding.pry
 
         o_user_ratings.each do |rating|
           if !c_user_ratings.include?(rating)
             totals.default = 0
-            totals[rating.beer_id] += rating.taste * sim
+            totals[rating["beer_id"]] += rating["taste"].to_f * sim
             sim_sums.default = 0
-            sim_sums[rating.beer_id] += sim
+            sim_sums[rating["beer_id"]] += sim
           end
         end
       end
 
       beer_rankings = Hash.new
       totals.each do |beer_id, sim_score|
-        if !User.find(c_user_id).reviews.find_by(beer_id: beer_id)
+        if !c_user_beers.include?(beer_id.to_s)
           beer_rankings[beer_id] = sim_score / sim_sums[beer_id]
         end
       end

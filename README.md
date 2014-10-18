@@ -1,14 +1,23 @@
 Beer Recommendation Engine
 
-- October 10, 2014
-  - product recs
-  : benchmark SQL vs Ruby for simpearson
+- October 16, 2014
+  - working on rewriting the Score Module to work with a JSON instead of repeated database queries
+    : benchmark SQL vs Ruby for simpearson
   : look into sidekiq
   : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
   : eager loading
   : background job for top 10 similar users (calculated per sign in) -- devise has after sign in path + add event that fires up a background job
   : redis stuff
   : visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
+
+- October 15, 2014
+  - more styling on beers pages
+
+- October 14, 2014
+  - updated beers views to be more appealing, fit pictures
+
+- October 10, 2014
+  - product recs
 
 - October 9, 2014
   - adjusted navbar so that a first time user doesn't see top ten option until dictionary has been repopulated with that new user's reviews
