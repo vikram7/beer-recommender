@@ -4,11 +4,12 @@ Beer Recommendation Engine
   - added top 3 beer picks method to score module for a user
   - added animated beers to similar users page
   - updated styling
+  - deployed
   - added average method for beer ratings through SQL aggregator in Score Module
-  - deployed, CSS is different though versus local version and need to figure out why; pagination is off in deployed version too and also need to figure this out
+  - figured out how to include new users into similarity rankings, but dictionary json payload update is slow and need to figure out how to speed it up
   - HIGH PRIORITY TODOS
-    - need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
-    - update css on deployed version so it matches dev version
+    - speed up dictionary json payload
+    - deployed, CSS is different though versus local version and need to figure out why; pagination is off in deployed version too and also need to figure this out
     - fix beer flask in css
     - add minimum # of beer review notification
   : look into sidekiq
