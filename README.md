@@ -6,7 +6,8 @@ Beer Recommendation Engine
   - updated styling
   - added average method for beer ratings through SQL aggregator in Score Module
   - deployed, CSS is different though versus local version and need to figure out why; pagination is off in deployed version too and also need to figure this out
-  : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
+  - figured out how to include new users into similarity rankings, but dictionary json payload update is slow and need to figure out how to speed it up
+  : require certain # of user ratings before similarity scores exist
   : look into sidekiq
   : visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
 

@@ -27,6 +27,7 @@ module Score
       mutual = []
       @dictionary[o_user_id].each do |o_beer, o_taste|
         @dictionary[c_user_id].each do |c_beer, c_taste|
+          # binding.pry
           mutual << [o_taste, c_taste] if o_beer == c_beer
         end
       end
