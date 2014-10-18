@@ -33,11 +33,18 @@ body {
   float:left;
   margin-right:10px;
   width:300px;
-  height:500px;
+  height:700px;
   background-color: white;
   margin-top:10px;
   padding-left: 50px;
   color: black;
+  font-size: 1.5em;
+}
+
+.item .beer_info {
+  padding-left: 0em;
+  line-height: 30px;
+  font-size: 0.8em;
 }
 
 .item a:link {
@@ -59,17 +66,45 @@ body {
   float:left;
   margin-right:10px;
   width:300px;
-  height:500px;
+  height:700px;
   background-color: white;
   margin-top:10px;
-  padding-left: 50px;
+  padding-left: 20px;
+  color: black;
+  font-size: 1.5em;
+}
+
+.user li {
+  padding-left: 1.7em;
+  list-style: none;
+  line-height: 30px;
+  font-size: 0.8em;
+}
+
+.user li:before {
+  content: "\2665";
+  color: #FF6600;
+  display: inline-block;
+  margin-left: -1.7em; /*same as padding-left set on li*/
+  width: 1.5em;
+}
+
+.user a:link {
+  color: black;
+}
+
+.user:hover {
+  background-color: #7f8c8d;
+}
+
+.review {
   color: black;
 }
 
 .head_title {
   font-size: 4rem;
   color: black;
-  font-family: "Lucida Console", Courier, monospace;
+  font-family:"Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 
 .subhead_title {
@@ -81,7 +116,7 @@ body {
 .search_title {
   font-size: 1rem;
   color: black;
-  font-family: "Lucida Console", Courier, monospace;
+  font-family:"Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   padding-right: 50px;
   padding-left: 50px;
 }
@@ -135,3 +170,286 @@ body {
     border: none;
   }
 }
+
+/* filled beer glass (from codepen.io)*/
+
+#container {
+  height: 370px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  top: -20px;
+  width: 248px;
+}
+
+#container div { position: absolute; }
+
+#beaker {
+  border: 10px solid #f8f8f8;
+  border-top: 0;
+  border-radius: 0 0 30px 30px;
+  height: 200px;
+  left: 14px;
+  bottom: 0;
+  width: 200px;
+}
+
+#beaker:before,
+#beaker:after {
+  border: 10px solid #FFF;
+  border-bottom: 0;
+  border-radius: 30px 30px 0 0;
+  content: '';
+  height: 30px;
+  position: absolute;
+  top: -40px;
+  width: 30px;
+}
+
+#beaker:before { left: -50px; }
+#beaker:after { right: -50px; }
+
+#liquid {
+  background-color: #edaf32;
+  border: 10px solid #edaf32;
+  border-radius: 0 0 20px 20px;
+  bottom: 0;
+  height: 200px;
+  overflow: hidden;
+  width: 180px;
+}
+
+#liquid:after {
+  background-color: rgba(255, 255, 255, 0.25);
+  bottom: -10px;
+  content: '';
+  height: 200px;
+  left: -40px;
+  position: absolute;
+  transform: rotate(30deg);
+  -webkit-transform: rotate(15deg);
+  width: 110px;
+}
+
+#liquid .bubble {
+  -webkit-animation-name: bubble;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  background-color: rgba(255, 255, 255, 0.2);
+  bottom: 0;
+  border-radius: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+@-webkit-keyframes bubble {
+  0% { bottom: 0; }
+
+   50% {
+     background-color: rgba(255, 255, 255, 0.2);
+      bottom: 80px;
+   }
+
+   100% {
+     background-color: rgba(255, 255, 255, 0);
+      bottom: 160px;
+   }
+}
+
+.bubble1 {
+  left: 10px;
+  -webkit-animation-delay: 1000ms;
+  -webkit-animation-duration: 1000ms;
+}
+
+.bubble2 {
+  left: 50px;
+  -webkit-animation-delay: 700ms;
+  -webkit-animation-duration: 1100ms;
+}
+
+.bubble3 {
+  left: 100px;
+  -webkit-animation-delay: 1200ms;
+  -webkit-animation-duration: 1300ms;
+}
+
+.bubble4 {
+  left: 130px;
+  -webkit-animation-delay: 1100ms;
+  -webkit-animation-duration: 700ms;
+}
+
+.bubble5 {
+  left: 170px;
+  -webkit-animation-delay: 1300ms;
+  -webkit-animation-duration: 800ms;
+}
+
+/* Foam */
+
+.beer-foam {
+  position: absolute;
+  bottom: 200px;
+}
+
+.foam-1, .foam-2, .foam-3, .foam-4,
+.foam-5, .foam-6, .foam-7 {
+  float: left;
+  position: absolute;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: #fefefe;
+}
+.foam-1 {
+  top: -30px;
+  left: -10px;
+}
+.foam-2 {
+  top: -35px;
+  left: 20px;
+}
+.foam-3 {
+  top: -25px;
+  left: 50px;
+}
+.foam-4 {
+  top: -35px;
+  left: 80px;
+}
+.foam-5 {
+  top: -30px;
+  left: 110px;
+}
+.foam-6 {
+  top: -20px;
+  left: 140px;
+}
+.foam-7 {
+  top: -30px;
+  left: 160px;
+}
+
+/* Drunk Text */
+
+.animated {
+  -webkit-animation-fill-mode:both;
+     -moz-animation-fill-mode:both;
+          animation-fill-mode:both;
+
+  -webkit-animation-duration:5s;
+     -moz-animation-duration:5s;
+          animation-duration:5s;
+
+  -webkit-animation-delay:3.5s;
+     -moz-animation-delay:3.5s;
+          animation-delay:3.5s;
+}
+
+
+.animated.drunk {
+  -webkit-animation-duration:2s;
+     -moz-animation-duration:2s;
+          animation-duration:2s;
+}
+
+@-webkit-keyframes drunk {
+  0% {
+    -webkit-transform: rotate(0);
+    -webkit-transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+  }
+
+  20%, 60% {
+    -webkit-transform: rotate(80deg);
+    -webkit-transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+  }
+  40% {
+    -webkit-transform: rotate(60deg);
+    -webkit-transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+  }
+
+  80% {
+    -webkit-transform: rotate(60deg) translateY(0);
+    -webkit-transform-origin: top left;
+    -webkit-animation-timing-function: ease-in-out;
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateY(700px);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes drunk {
+  0% {
+    -moz-transform: rotate(0);
+    -moz-transform-origin: top left;
+    -moz-animation-timing-function: ease-in-out;
+  }
+
+  20%, 60% {
+    -moz-transform: rotate(80deg);
+    -moz-transform-origin: top left;
+    -moz-animation-timing-function: ease-in-out;
+  }
+
+  40% {
+    -moz-transform: rotate(60deg);
+    -moz-transform-origin: top left;
+    -moz-animation-timing-function: ease-in-out;
+  }
+
+  80% {
+    -moz-transform: rotate(60deg) translateY(0); opacity: 1;
+    -moz-transform-origin: top left;
+    -moz-animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    -moz-transform: translateY(700px);
+    opacity: 0;
+  }
+}
+
+@keyframes drunk {
+  0% {
+    transform: rotate(0);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  20%, 60% {
+    transform: rotate(80deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  40% {
+    transform: rotate(60deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  80% {
+    transform: rotate(60deg) translateY(0);
+    opacity: 1; transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: translateY(700px);
+    opacity: 0;
+  }
+}
+
+.drunk {
+  -webkit-animation-name: drunk;
+  -moz-animation-name: drunk;
+  animation-name: drunk;
+}
+

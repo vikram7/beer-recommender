@@ -1,44 +1,46 @@
-<div><%= @beer.name %></div>
+<div class="review">
+  <div><%= @beer.name %></div>
 
-<div>
-  <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + @beer.id.to_s + ".jpg") %>
-</div>
+  <div>
+    <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + @beer.id.to_s + ".jpg") %>
+  </div>
 
-<div>ABV: <% if @beer.abv == 0.0 %>
-  <%= '--' %>
-  <% else %>
-    <%= @beer.abv %>%</small>
-    <% end %>
-</div>
-<div>Average rating: <%= @average %></div>
-<div>Style: <%= @beer.style.style %></div>
-<div>Made by: <%= @beer.brewer.name %></div>
-<div>Number of reviews: <%= @beer.reviews.count %></div>
-
-<div>Add Review</div>
-  <%= form_for [@beer, @review] do |f| %>
-    <div>
-      <%= f.label :text %>
-      <%= f.text_area :text %>
-    </div>
-    <div>
-      <%= f.label :taste %>
-      <%= f.select :taste, (1..10) %>
-    </div>
-    <div><%= f.submit "Submit" %></div>
-  <% end %>
-
-<div>Reviews:<div>
-<% @reviews.each do |review| %>
-  <p>
-    <% if user_signed_in? %>
-      User <%= link_to review.user.profile_name, user_path(review.user.id) %> gave it a rating of <%= review.taste %><br>
+  <div>ABV: <% if @beer.abv == 0.0 %>
+    <%= '--' %>
     <% else %>
-      User <%= review.user.profile_name %> gave it a rating of <%= review.taste %><br>
+      <%= @beer.abv %>%</small>
+      <% end %>
+  </div>
+  <div>Average rating: <%= @average %></div>
+  <div>Style: <%= @beer.style.style %></div>
+  <div>Made by: <%= @beer.brewer.name %></div>
+  <div>Number of reviews: <%= @beer.reviews.count %></div>
+
+  <div>Add Review</div>
+    <%= form_for [@beer, @review] do |f| %>
+      <div>
+        <%= f.label :text %>
+        <%= f.text_area :text %>
+      </div>
+      <div>
+        <%= f.label :taste %>
+        <%= f.select :taste, (1..10) %>
+      </div>
+      <div><%= f.submit "Submit" %></div>
     <% end %>
-    <%= review.text %><br>
-      <small>
-        by user <%= review.user.profile_name %> on <%= review.created_at %>
-      </small>
-  </p>
-<% end %>
+
+  <div>Reviews:<div>
+    <% @reviews.each do |review| %>
+      <div class="panel">
+        <% if user_signed_in? %>
+          User <%= link_to review.user.profile_name, user_path(review.user.id) %> gave it a rating of <%= review.taste %><br>
+        <% else %>
+          User <%= review.user.profile_name %> gave it a rating of <%= review.taste %><br>
+        <% end %>
+        <%= review.text %><br>
+          <small>
+            by user <%= review.user.profile_name %> on <%= review.created_at %>
+          </small>
+      </div>
+    <% end %>
+</div>

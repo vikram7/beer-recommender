@@ -8,23 +8,25 @@
       <div>
         <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + beer.id.to_s + ".jpg", size: "100x100") %>
       </div>
-      <div>
-        <%= beer.brewer.name %>
+      <div class="beer_info">
+        <div class="panel">
+          <%= beer.style.style %>
+        <div>
+          ABV:
+           <% if beer.abv == 0.0 %>
+            <%= '--' %>
+            <% else %>
+              <%= beer.abv %>%
+          <% end %>
+        </div>
+        </div>
       </div>
-      <div>
-        Style: <%= beer.style.style %>
-      </div>
-      <div>
-        ABV:
-         <% if beer.abv == 0.0 %>
-          <%= '--' %>
-          <% else %>
-            <%= beer.abv %>%
-        <% end %>
-      </div>
+    <%= number_with_precision(Score.beer_average_rating(beer.id), precision: 1) %>
     </div>
+
   <% end %>
   </ul>
+
 </div>
 
 <%= paginate @beers %>
