@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def index
     @dictionary = Score.dictionary
-    @top_ten = Score.top_matches(current_user.id)
-    @top_ten.each do |array|
+    @top_twenty = Score.top_matches(current_user.id)
+    @top_twenty.each do |array|
       if array.include?(current_user.id.to_s)
-        @top_ten.delete(array)
+        @top_twenty.delete(array)
       end
     end
   end

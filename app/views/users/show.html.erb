@@ -1,57 +1,59 @@
-<% if @user.id == current_user.id %>
-  <ul>
-  <div>
-    <% @user.reviews.each do |review| %>
-      <div class="item">
-        <div>
-          <%= link_to review.beer.name, beer_path(review.beer.id) %>
-        </div>
-        <div>
-          <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + review.beer.id.to_s + ".jpg", size: "100x100") %>
-        </div>
-        <div>
-          Your Rating: <%= review.taste %>
-        </div>
-        <div>
-      Brewer:<%= review.beer.brewer.name %>
+<div>
+  <% if @user.id == current_user.id %>
+    <ul>
+    <div>
+      <% @user.reviews.each do |review| %>
+        <div class="item">
+          <div>
+            <%= link_to review.beer.name, beer_path(review.beer.id) %>
+          </div>
+          <div>
+            <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + review.beer.id.to_s + ".jpg", size: "100x100") %>
+          </div>
+          <div>
+            Your Rating: <%= review.taste %>
+          </div>
+          <div>
+            Brewer:<%= review.beer.brewer.name %>
+          </div>
+          <div>
+            Style: <%= review.beer.style.style %>
+          </div>
+          <div>ABV:
+            <% if review.beer.abv == 0.0 %>
+              <%= '--' %>
+              <% else %>
+              <%= review.beer.abv %>%
+            <% end %>
+          </div>
+    </div>
+        <% end %>
+    </div>
+    </ul>
+  <% else %>
+    <div>
+      <%= @user.profile_name %>'s reviews and ratings
     </div>
     <div>
-      Style: <%= review.beer.style.style %>
+      You have a <%= '%.0f' % (Score.simpearson(current_user.id, @user.id) * 100) %>% similarity with <%= @user.profile_name %>
     </div>
-    ABV:
-     <% if review.beer.abv == 0.0 %>
-      <div><%= '--' %></div>
-      <% else %>
-        <div><%= review.beer.abv %>%</div>
-    <% end %>
-  </div>
-      </div>
-    <% end %>
-  </div>
-  </ul>
-<% else %>
-  <div>
-    <%= @user.profile_name %>'s reviews and ratings
-  </div>
-  <div>
-    You have a <%= '%.0f' % (Score.simpearson(current_user.id, @user.id) * 100) %>% similarity with <%= @user.profile_name %>
-  </div>
 
-  <ul>
-  <div>
-    <% @user.reviews.each do |review| %>
-      <li>
-      <div>
-        <%= link_to review.beer.name, beer_path(review.beer.id) %>
-      </div>
-      <div>
-        <%= review.text %>
-      </div>
-      <div>
-        <%= review.taste %>
-      </div>
-      </li>
-    <% end %>
-  </div>
-  </ul>
-<% end %>
+    <ul>
+    <div>
+      <% @user.reviews.each do |review| %>
+        <div class="panel">
+          <div>
+            <%= link_to review.beer.name, beer_path(review.beer.id) %>
+          </div>
+          <div>
+            <%= review.text %>
+          </div>
+          <div>
+            <%= review.taste %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    </ul>
+  <% end %>
+</div>

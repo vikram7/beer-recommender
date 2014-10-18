@@ -20,13 +20,13 @@
         </li>
         <% if Score.dictionary[current_user.id.to_s] != nil %>
           <li>
-            <%= link_to "Your Beer Recommendations", user_recommendations_path(current_user.id) %>
+            <%= link_to "Beer Recommendations For You", user_recommendations_path(current_user.id) %>
           </li>
           <li>
-            <a><%= link_to "Top 10 Similar Users", users_path %></a>
+            <a><%= link_to "Your Top Similar Users", users_path %></a>
           </li>
           <li>
-            <a><%= link_to "See my Reviews", user_path(current_user.id) %></a>
+            <a><%= link_to "See Your Reviews", user_path(current_user.id) %></a>
           </li>
         <% end %>
         <li>

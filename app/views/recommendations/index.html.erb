@@ -8,9 +8,6 @@
         <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + recommendation.first.to_s + ".jpg", size: "100x100") %>
       </div>
       <div>
-        Expected Rating: <%= "%.1f" % recommendation.last %>
-      </div>
-      <div>
         <%= Beer.find_by(beer_id: recommendation.first).brewer.name %>
       </div>
       <div>
@@ -23,6 +20,10 @@
           <% else %>
             <%= Beer.find_by(beer_id: recommendation.first).abv %>%
         <% end %>
+      </div>
+      <br><br>
+      <div>
+        Expected Rating: <%= "%.1f" % recommendation.last %>
       </div>
     </div>
   <% end %>

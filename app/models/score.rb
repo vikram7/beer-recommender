@@ -45,15 +45,26 @@ module Score
       end
     end
 
+    def user_top_three_picks(user_id)
+      picks = Array.new
+      reviews = ActiveRecord::Base.connection.execute("SELECT * FROM reviews WHERE reviews.user_id =#{ActiveRecord::Base.sanitize(user_id)}").to_a
+
+      reviews.each do |review|
+        picks << review["beer_id"] if review["taste"].to_i >= 7
+      end
+
+      picks.sort.reverse.take(3)
+    end
+
     def top_matches(c_user_id)
-    # returns top 10 users with similar tastes as another user
+    # returns top 20 users with similar tastes as another user
       c_user_id = c_user_id.to_s
       scores = Array.new
       @dictionary.each do |o_user_id, ratings|
         scores << [simpearson(o_user_id, c_user_id), o_user_id]
       end
       scores = scores.sort.reverse
-      scores.take(11)
+      scores.take(20)
       # scores = @similarity[c_user_id].sort_by do |o_user_id, sim_score|
       #   -sim_score
       # end
@@ -84,7 +95,6 @@ module Score
 
         o_user_ratings = ActiveRecord::Base.connection.execute("SELECT * FROM reviews WHERE reviews.user_id =#{ActiveRecord::Base.sanitize(o_user.id)}").to_a
         # o_user_ratings = User.where(id: o_user.id).first.reviews
-        binding.pry
 
         o_user_ratings.each do |rating|
           if !c_user_ratings.include?(rating)
