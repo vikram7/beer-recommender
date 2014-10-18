@@ -1,13 +1,19 @@
 Beer Recommendation Engine
 
+- October 18, 2014
+  - added top 3 beer picks method to score module for a user
+  - added animated beers to similar users page
+  - updated styling
+  - added average method for beer ratings through SQL aggregator in Score Module
+
+- October 17, 2014
+  - added SQL commands to replace ruby work in Score Module. this sped up recommendation calculator by a ton (went from 19 seconds down to 4 after this)
+  - some front end work
+
 - October 16, 2014
   - working on rewriting the Score Module to work with a JSON instead of repeated database queries
-    : benchmark SQL vs Ruby for simpearson
   : look into sidekiq
   : need to figure out how to insert current user ratings (for a new user) into the dictionary (which is required because a populate task has not ocurred)
-  : eager loading
-  : background job for top 10 similar users (calculated per sign in) -- devise has after sign in path + add event that fires up a background job
-  : redis stuff
   : visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
 
 - October 15, 2014
