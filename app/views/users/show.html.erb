@@ -1,8 +1,14 @@
 <div class="panel">
   <%= @user.profile_name %>'s reviews and ratings
-  <div>
-    You have a <%= '%.0f' % (Score.simpearson(current_user.id, @user.id) * 100) %>% similarity with <%= @user.profile_name %>
-  </div>
+  <% if @user.id == current_user.id %>
+    <div>
+      This is you!
+    </div>
+  <% else %>
+    <div>
+      You have a <%= '%.0f' % (Score.simpearson(current_user.id, @user.id) * 100) %>% similarity with <%= @user.profile_name %>
+    </div>
+  <% end %>
 </div>
 
 <ul>
