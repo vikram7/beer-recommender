@@ -513,7 +513,7 @@ ul.three {
 
 .beer_label {
   position: absolute;
-  bottom: 150px;
+  bottom: 0px;
   float:left;
   margin-right: 10px;
   width: 300px;
@@ -521,10 +521,10 @@ ul.three {
   padding-left: 20px;
   color: black;
   text-align: center;
-  background-color: #eee;
+  background-color: #87CEFA;
 }
 
 .expected {
   position: absolute;
-  bottom: 50px;
+  bottom: 150px;
 }
