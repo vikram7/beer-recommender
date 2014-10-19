@@ -2,13 +2,9 @@
   <ul>
     <% @top_twenty.each do |user| %>
       <div class="user">
-        <div>
+        <div class="faves">
           <%= link_to User.find(user.last).profile_name, user_path(user.last) %>
         </div>
-        <div>
-          <%= number_to_percentage(user.first * 100, precision: 0) %>
-        </div>
-
           <div id="container">
             <div id="beaker">
               <div class="beer-foam">
@@ -32,12 +28,13 @@
             </div>
           </div>
 
-          <% Score.user_top_three_picks(user.last).each do |beer| %>
-            <li>
-              <%= link_to Beer.find(beer).name, beer_path(beer) %>
-            </li>
-          <% end %>
-
+          <ul class="three">
+            <% Score.user_top_three_picks(user.last).each do |beer| %>
+              <li>
+                <%= link_to Beer.find(beer).name, beer_path(beer) %>
+              </li>
+            <% end %>
+          </ul>
       </div>
     <% end %>
   </ul>

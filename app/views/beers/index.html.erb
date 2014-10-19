@@ -11,19 +11,23 @@
       <div class="beer_info">
         <div class="panel">
           <%= beer.style.style %>
-        <div>
-          ABV:
-           <% if beer.abv == 0.0 %>
-            <%= '--' %>
-            <% else %>
-              <%= beer.abv %>%
-          <% end %>
-        </div>
+          <div>
+            ABV:
+             <% if beer.abv == 0.0 %>
+              <%= '--' %>
+              <% else %>
+                <%= beer.abv %>%
+            <% end %>
+          </div>
         </div>
       </div>
-    <%= number_with_precision(Score.beer_average_rating(beer.id), precision: 1) %>
+    <% Score.beer_average_rating(beer.id).to_i.times do %>
+      <span id="heart"><%= "♥" %></span>
+      <% end %>
+    <%(10 - Score.beer_average_rating(beer.id).to_i).times do %>
+      <span id = "blank_heart"><%= "♥" %></span>
+    <% end %>
     </div>
-
   <% end %>
   </ul>
 

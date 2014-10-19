@@ -128,6 +128,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.3.2)
+    ratyrate (1.2.2.alpha)
     rdoc (4.1.2)
       json (~> 1.4)
     rspec-core (3.1.4)
@@ -215,6 +216,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (= 4.1.6)
   rails_12factor
+  ratyrate
   rspec-rails
   ruby-prof
   sass-rails (~> 4.0.3)

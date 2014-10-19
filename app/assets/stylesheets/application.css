@@ -66,7 +66,7 @@ body {
   float:left;
   margin-right:10px;
   width:300px;
-  height:700px;
+  height:650px;
   background-color: white;
   margin-top:10px;
   padding-left: 20px;
@@ -74,19 +74,26 @@ body {
   font-size: 1.5em;
 }
 
-.user li {
-  padding-left: 1.7em;
-  list-style: none;
-  line-height: 30px;
+.user ul {
   font-size: 0.8em;
 }
+.user li {
+  padding-left: 1.7em;
+  margin-bottom: 5px;
+  list-style: none;
+  line-height: 30px;
+  font-size: 1.0em;
+}
 
+/* heart for user list item beers */
 .user li:before {
   content: "\2665";
   color: #FF6600;
   display: inline-block;
   margin-left: -1.7em; /*same as padding-left set on li*/
+  padding-left: 10px;
   width: 1.5em;
+  font-size: 1.5em;
 }
 
 .user a:link {
@@ -178,7 +185,7 @@ body {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-  top: -20px;
+  top: -50px;
   width: 248px;
 }
 
@@ -453,3 +460,32 @@ body {
   animation-name: drunk;
 }
 
+/* for heart ratings */
+#heart {
+  color: #FF6600;
+  font-size: 1.4em;
+}
+
+#blank_heart {
+  content: "\2665";
+  color: #F5DEB3;
+  font-size: 1.4em;
+}
+
+.faves {
+  float:left;
+  margin-right: 10px;
+  width:300px;
+  height: 75px;
+  margin-left: -20px;
+  padding-left: 20px;
+  color: black;
+  text-align: center;
+  background-color: #eee;
+}
+
+ul.three {
+  margin-right: 10px;
+  position: relative;
+  top: -40px;
+}

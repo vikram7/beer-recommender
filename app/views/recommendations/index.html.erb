@@ -22,7 +22,15 @@
       </div>
       <br><br>
       <div>
-        Expected Rating: <%= "%.1f" % recommendation.last %>
+        <div>
+          Your Expected Rating
+        </div>
+        <% recommendation.last.to_i.times do %>
+          <span id="heart"><%= "♥" %></span>
+          <% end %>
+        <% (10-recommendation.last).to_i.times do %>
+          <span id = "blank_heart"><%= "♥" %></span>
+        <% end %>
       </div>
     </div>
   <% end %>
