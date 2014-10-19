@@ -478,13 +478,13 @@ body {
 .faves {
   float:left;
   margin-right: 10px;
-  width:300px;
+  width: 300px;
   height: 75px;
   margin-left: -20px;
   padding-left: 20px;
   color: black;
   text-align: center;
-  background-color: #eee;
+  background-color: #87CEFA;
 }
 
 ul.three {
@@ -508,7 +508,7 @@ ul.three {
   padding-left: 20px;
   color: black;
   text-align: center;
-  background-color: #eee;
+  background-color: #87CEFA;
 }
 
 .beer_label {
@@ -521,10 +521,14 @@ ul.three {
   padding-left: 20px;
   color: black;
   text-align: center;
-  background-color: #87CEFA;
+  background-color: #eee;
 }
 
 .expected {
   position: absolute;
   bottom: 150px;
+}
+
+a:visited {
+  color: black;
 }
