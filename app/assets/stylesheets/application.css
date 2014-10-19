@@ -39,12 +39,15 @@ body {
   padding-left: 50px;
   color: black;
   font-size: 1.5em;
+  position: relative;
 }
 
 .item .beer_info {
+  width: 300px;
   padding-left: 0em;
   line-height: 30px;
   font-size: 0.8em;
+  margin-left: -50px;
 }
 
 .item a:link {
@@ -488,4 +491,40 @@ ul.three {
   margin-right: 10px;
   position: relative;
   top: -40px;
+}
+
+.beer_image {
+  position: absolute;
+  left: 37.5%;
+  top: 125px;
+}
+
+.beer_title {
+  float:left;
+  margin-right: 10px;
+  width:300px;
+  height: 75px;
+  margin-left: -50px;
+  padding-left: 20px;
+  color: black;
+  text-align: center;
+  background-color: #eee;
+}
+
+.beer_label {
+  position: absolute;
+  bottom: 150px;
+  float:left;
+  margin-right: 10px;
+  width: 300px;
+  height: 100px;
+  padding-left: 20px;
+  color: black;
+  text-align: center;
+  background-color: #eee;
+}
+
+.expected {
+  position: absolute;
+  bottom: 50px;
 }

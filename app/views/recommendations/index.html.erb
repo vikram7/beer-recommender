@@ -1,27 +1,32 @@
 <ul>
   <% @recommendations.take(20).each do |recommendation| %>
     <div class="item">
-      <div>
-        <%= link_to Beer.find_by(beer_id: recommendation.first).name, beer_path(recommendation.first) %>
-      </div>
-       <div>
-        <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + recommendation.first.to_s + ".jpg", size: "100x100") %>
-      </div>
-      <div class="panel">
+      <div class="beer_title">
         <div>
-          Style: <%= Beer.find_by(beer_id: recommendation.first).style.style %>
-        </div>
-        <div>
-          ABV:
-           <% if Beer.find_by(beer_id: recommendation.first).abv == 0.0 %>
-            <%= '--' %>
-            <% else %>
-              <%= Beer.find_by(beer_id: recommendation.first).abv %>%
-          <% end %>
+          <%= link_to Beer.find_by(beer_id: recommendation.first).name, beer_path(recommendation.first) %>
         </div>
       </div>
-      <br><br>
-      <div>
+      <div class="beer_image">
+        <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + recommendation.first.to_s + ".jpg", size: "75x75") %>
+      </div>
+
+      <div class="beer_info">
+        <div class="beer_label">
+          <div>
+            <%= Beer.find_by(beer_id: recommendation.first).style.style %>
+          </div>
+          <div>
+            ABV:
+             <% if Beer.find_by(beer_id: recommendation.first).abv == 0.0 %>
+              <%= '--' %>
+              <% else %>
+                <%= Beer.find_by(beer_id: recommendation.first).abv %>%
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="expected">
         <div>
           Your Expected Rating
         </div>
@@ -33,5 +38,6 @@
         <% end %>
       </div>
     </div>
+
   <% end %>
 </ul>
