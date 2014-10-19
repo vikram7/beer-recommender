@@ -39,12 +39,15 @@ body {
   padding-left: 50px;
   color: black;
   font-size: 1.5em;
+  position: relative;
 }
 
 .item .beer_info {
+  width: 300px;
   padding-left: 0em;
   line-height: 30px;
   font-size: 0.8em;
+  margin-left: -50px;
 }
 
 .item a:link {
@@ -66,7 +69,7 @@ body {
   float:left;
   margin-right:10px;
   width:300px;
-  height:700px;
+  height:650px;
   background-color: white;
   margin-top:10px;
   padding-left: 20px;
@@ -74,19 +77,26 @@ body {
   font-size: 1.5em;
 }
 
-.user li {
-  padding-left: 1.7em;
-  list-style: none;
-  line-height: 30px;
+.user ul {
   font-size: 0.8em;
 }
+.user li {
+  padding-left: 1.7em;
+  margin-bottom: 5px;
+  list-style: none;
+  line-height: 30px;
+  font-size: 1.0em;
+}
 
+/* heart for user list item beers */
 .user li:before {
   content: "\2665";
   color: #FF6600;
   display: inline-block;
   margin-left: -1.7em; /*same as padding-left set on li*/
+  padding-left: 10px;
   width: 1.5em;
+  font-size: 1.5em;
 }
 
 .user a:link {
@@ -95,10 +105,6 @@ body {
 
 .user:hover {
   background-color: #7f8c8d;
-}
-
-.review {
-  color: black;
 }
 
 .head_title {
@@ -178,8 +184,8 @@ body {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-  top: -20px;
-  width: 248px;
+  top: -50px;
+  width: 210px;
 }
 
 #container div { position: absolute; }
@@ -189,7 +195,7 @@ body {
   border-top: 0;
   border-radius: 0 0 30px 30px;
   height: 200px;
-  left: 14px;
+
   bottom: 0;
   width: 200px;
 }
@@ -301,7 +307,7 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 30px;
-  background-color: #fefefe;
+  background-color: #fae7c2;
 }
 .foam-1 {
   top: -30px;
@@ -453,3 +459,99 @@ body {
   animation-name: drunk;
 }
 
+/* for heart ratings */
+#heart {
+  color: #FF6600;
+  font-size: 1.4em;
+}
+
+#blank_heart {
+  content: "\2665";
+  color: #F5DEB3;
+  font-size: 1.4em;
+}
+
+.faves {
+  float:left;
+  /*margin-right: 10px;*/
+  line-height: 75px;
+  width: 300px;
+  height: 75px;
+  margin-left: -20px;
+  padding-left: 20px;
+  color: black;
+  text-align: center;
+  background-color: #87CEFA;
+}
+
+ul.three {
+  margin-right: 10px;
+  position: relative;
+  top: -40px;
+}
+
+.beer_image {
+  position: absolute;
+  left: 37.5%;
+  top: 125px;
+}
+
+.beer_title {
+  float:left;
+  margin-right: 10px;
+  width:300px;
+  height: 75px;
+  margin-left: -50px;
+  padding-left: 20px;
+  color: black;
+  text-align: center;
+  background-color: #87CEFA;
+}
+
+.beer_label {
+  position: absolute;
+  bottom: 0px;
+  float:left;
+  margin-right: 10px;
+  width: 300px;
+  height: 100px;
+  padding-left: 20px;
+  color: black;
+  text-align: center;
+  background-color: #eee;
+}
+
+.expected {
+  position: absolute;
+  bottom: 150px;
+}
+
+a:visited {
+  color: black;
+}
+
+.panel_expected {
+  bottom: 5px;
+}
+
+.add_review {
+  float: left;
+  padding-left: 50px;
+  color: black;
+  width: 600px;
+}
+
+.review {
+  color: black;
+  float: left;
+  padding-right: 100px;
+}
+
+.reviews {
+  float: left;
+  color: black;
+}
+
+.reviews_title {
+  font-size: 1.5em;
+}

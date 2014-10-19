@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @dictionary = Score.dictionary
     @top_twenty = Score.top_matches(current_user.id)
@@ -10,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:reviews, :beers).find(params[:id])
   end
 
 end

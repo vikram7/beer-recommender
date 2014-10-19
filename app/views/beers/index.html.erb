@@ -2,31 +2,42 @@
   <ul>
   <% @beers.each do |beer| %>
     <div class="item">
-      <div>
+      <div class="beer_title">
         <%= link_to beer.name, beer_path(beer) %>
       </div>
-      <div>
-        <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + beer.id.to_s + ".jpg", size: "100x100") %>
+
+      <div class="beer_image">
+        <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + beer.id.to_s + ".jpg", size: "90x90") %>
       </div>
-      <div class="beer_info">
-        <div class="panel">
-          <%= beer.style.style %>
-        <div>
-          ABV:
-           <% if beer.abv == 0.0 %>
-            <%= '--' %>
-            <% else %>
-              <%= beer.abv %>%
-          <% end %>
-        </div>
-        </div>
-      </div>
-    <%= number_with_precision(Score.beer_average_rating(beer.id), precision: 1) %>
+
+      <div class="expected">
+            <% Score.beer_average_rating(beer.id).to_i.times do %>
+      <span id="heart"><%= "♥" %></span>
+      <% end %>
+    <%(10 - Score.beer_average_rating(beer.id).to_i).times do %>
+      <span id = "blank_heart"><%= "♥" %></span>
+    <% end %>
     </div>
 
+      <div class="beer_info">
+        <div class="beer_label">
+          <%= beer.style.style %>
+          <div>
+            ABV:
+             <% if beer.abv == 0.0 %>
+              <%= '--' %>
+              <% else %>
+                <%= beer.abv %>%
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
   <% end %>
   </ul>
 
 </div>
 
 <%= paginate @beers %>
+

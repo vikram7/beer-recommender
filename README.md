@@ -1,5 +1,20 @@
 Beer Recommendation Engine
 
+- October 19, 2014
+  - cleaned up front end
+  - added filled in and opaque hearts for ratings
+  - crisper styling
+    - fixed beer flask in css
+    - more eager loading to users and reviews
+    - user has_many beers through reviews added to model
+  - HIGH PRIORITY TODOS
+    - speed up dictionary json payload
+    - deployed, CSS is different though versus local version and need to figure out why; pagination is off in deployed version too and also need to figure this out
+    - add minimum # of beer review notification
+    - add cached average rating to each beer
+  : look into sidekiq
+  : visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
+
 - October 18, 2014
   - added top 3 beer picks method to score module for a user
   - added animated beers to similar users page
@@ -7,13 +22,6 @@ Beer Recommendation Engine
   - deployed
   - added average method for beer ratings through SQL aggregator in Score Module
   - figured out how to include new users into similarity rankings, but dictionary json payload update is slow and need to figure out how to speed it up
-  - HIGH PRIORITY TODOS
-    - speed up dictionary json payload
-    - deployed, CSS is different though versus local version and need to figure out why; pagination is off in deployed version too and also need to figure this out
-    - fix beer flask in css
-    - add minimum # of beer review notification
-  : look into sidekiq
-  : visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
 
 - October 17, 2014
   - added SQL commands to replace ruby work in Score Module. this sped up recommendation calculator by a ton (went from 19 seconds down to 4 after this)

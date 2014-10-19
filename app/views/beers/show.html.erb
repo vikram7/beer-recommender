@@ -15,32 +15,46 @@
   <div>Style: <%= @beer.style.style %></div>
   <div>Made by: <%= @beer.brewer.name %></div>
   <div>Number of reviews: <%= @beer.reviews.count %></div>
+</div>
 
-  <div>Add Review</div>
-    <%= form_for [@beer, @review] do |f| %>
-      <div>
-        <%= f.label :text %>
-        <%= f.text_area :text %>
-      </div>
-      <div>
-        <%= f.label :taste %>
-        <%= f.select :taste, (1..10) %>
-      </div>
-      <div><%= f.submit "Submit" %></div>
-    <% end %>
+<div class="add_review">
+  <div>
+    Add Review
+  </div>
+  <%= form_for [@beer, @review] do |f| %>
+  <div>
+    <%= f.label :text %>
+    <%= f.text_area :text %>
+  </div>
+  <div>
+    <%= f.label :taste %>
+    <%= f.select :taste, (1..10) %>
+  </div>
+  <div><%= f.submit "Submit" %></div>
+  <% end %>
+</div>
 
-  <div>Reviews:<div>
-    <% @reviews.each do |review| %>
-      <div class="panel">
-        <% if user_signed_in? %>
-          User <%= link_to review.user.profile_name, user_path(review.user.id) %> gave it a rating of <%= review.taste %><br>
-        <% else %>
-          User <%= review.user.profile_name %> gave it a rating of <%= review.taste %><br>
-        <% end %>
-        <%= review.text %><br>
-          <small>
-            by user <%= review.user.profile_name %> on <%= review.created_at %>
-          </small>
+<div class="reviews">
+  <div class="reviews_title">Reviews</div>
+  <% @reviews.each do |review| %>
+    <div class="panel">
+      <div>
+        User <%= link_to review.user.profile_name, user_path(review.user.id) %>
       </div>
-    <% end %>
+      <div class="panel_expected">
+        <% review.taste.to_i.times do %>
+        <span id="heart"><%= "♥" %></span>
+      <% end %>
+        <%(10 - review.taste.to_i).times do %>
+        <span id = "blank_heart"><%= "♥" %></span>
+      <% end %>
+      </div>
+      <div>
+        <%= review.text %>
+      </div>
+      <small>
+        written on <%= review.created_at.strftime('%m-%d-%Y') %>
+      </small>
+    </div>
+  <% end %>
 </div>
