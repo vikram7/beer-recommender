@@ -4,14 +4,14 @@
     <div>
       <% @user.reviews.each do |review| %>
         <div class="item">
-          <div>
+          <div class="beer_title">
             <%= link_to review.beer.name, beer_path(review.beer.id) %>
           </div>
-          <div>
-            <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + review.beer.id.to_s + ".jpg", size: "100x100") %>
+          <div class="beer_image">
+            <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + review.beer.id.to_s + ".jpg", size: "90x90") %>
           </div>
           <div class="beer_info">
-            <div class="panel">
+            <div class="beer_label">
               <div>
                 Style: <%= review.beer.style.style %>
               </div>
@@ -24,20 +24,31 @@
               </div>
             </div>
           </div>
-          <div>
-            Your Rating: <%= review.taste %>
+
+          <div class="expected">
+            <% review.taste.to_i.times do %>
+          <span id="heart"><%= "♥" %></span>
+          <% end %>
+          <%(10 - review.taste.to_i).times do %>
+          <span id = "blank_heart"><%= "♥" %></span>
+          <% end %>
           </div>
+        </div>
         </div>
         <% end %>
     </div>
     </ul>
+
   <% else %>
-    <div class="panel">
-      <%= @user.profile_name %>'s reviews and ratings
-      <div>
-        You have a <%= '%.0f' % (Score.simpearson(current_user.id, @user.id) * 100) %>% similarity with <%= @user.profile_name %>
+
+
+      <div class="panel">
+        <%= @user.profile_name %>'s reviews and ratings
+        <div>
+          You have a <%= '%.0f' % (Score.simpearson(current_user.id, @user.id) * 100) %>% similarity with <%= @user.profile_name %>
+        </div>
       </div>
-    </div>
+
 
     <ul>
     <div>
