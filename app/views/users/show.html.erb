@@ -1,71 +1,29 @@
-<div>
-  <% if @user.id == current_user.id %>
-    <ul>
-    <div>
-      <% @user.reviews.each do |review| %>
-        <div class="item">
-          <div class="beer_title">
-            <%= link_to review.beer.name, beer_path(review.beer.id) %>
-          </div>
-          <div class="beer_image">
-            <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + review.beer.id.to_s + ".jpg", size: "90x90") %>
-          </div>
-          <div class="beer_info">
-            <div class="beer_label">
-              <div>
-                Style: <%= review.beer.style.style %>
-              </div>
-              <div>ABV:
-                <% if review.beer.abv == 0.0 %>
-                  <%= '--' %>
-                  <% else %>
-                  <%= review.beer.abv %>%
-                <% end %>
-              </div>
-            </div>
-          </div>
+<div class="panel">
+  <%= @user.profile_name %>'s reviews and ratings
+  <div>
+    You have a <%= '%.0f' % (Score.simpearson(current_user.id, @user.id) * 100) %>% similarity with <%= @user.profile_name %>
+  </div>
+</div>
 
-          <div class="expected">
-            <% review.taste.to_i.times do %>
+<ul>
+  <div>
+    <% @user.reviews.each do |review| %>
+      <div class="panel">
+        <div>
+          <%= link_to review.beer.name, beer_path(review.beer.id) %>
+        </div>
+        <div>
+          <%= review.text %>
+        </div>
+        <div class="panel_expected">
+          <% review.taste.to_i.times do %>
           <span id="heart"><%= "♥" %></span>
-          <% end %>
+        <% end %>
           <%(10 - review.taste.to_i).times do %>
           <span id = "blank_heart"><%= "♥" %></span>
-          <% end %>
-          </div>
-        </div>
-        </div>
         <% end %>
-    </div>
-    </ul>
-
-  <% else %>
-
-
-      <div class="panel">
-        <%= @user.profile_name %>'s reviews and ratings
-        <div>
-          You have a <%= '%.0f' % (Score.simpearson(current_user.id, @user.id) * 100) %>% similarity with <%= @user.profile_name %>
         </div>
       </div>
-
-
-    <ul>
-    <div>
-      <% @user.reviews.each do |review| %>
-        <div class="panel">
-          <div>
-            <%= link_to review.beer.name, beer_path(review.beer.id) %>
-          </div>
-          <div>
-            <%= review.text %>
-          </div>
-          <div>
-            <%= review.taste %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    </ul>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+</ul>

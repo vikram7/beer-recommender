@@ -107,10 +107,6 @@ body {
   background-color: #7f8c8d;
 }
 
-.review {
-  color: black;
-}
-
 .head_title {
   font-size: 4rem;
   color: black;
@@ -532,4 +528,30 @@ ul.three {
 
 a:visited {
   color: black;
+}
+
+.panel_expected {
+  bottom: 5px;
+}
+
+.add_review {
+  float: left;
+  padding-left: 50px;
+  color: black;
+  width: 600px;
+}
+
+.review {
+  color: black;
+  float: left;
+  padding-right: 100px;
+}
+
+.reviews {
+  float: left;
+  color: black;
+}
+
+.reviews_title {
+  font-size: 1.5em;
 }
