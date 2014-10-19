@@ -30,7 +30,7 @@
           <ul class="three">
             <% Score.user_top_three_picks(user.last).each do |beer| %>
               <li>
-                <%= link_to Beer.find(beer).name, beer_path(beer) %>
+                <%= link_to Score.beer_name(beer.first), beer_path(beer.first.to_i) %>
               </li>
             <% end %>
           </ul>

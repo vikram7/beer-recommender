@@ -1,8 +1,7 @@
 module Score
   @dictionary = Dictionary.last.payload
   @similarity = Similarity.last.payload
-
-  # @all_beers = Beer.all
+  @beeridname = Beeridname.last.payload
   class << self
 
     def dictionary
@@ -11,6 +10,11 @@ module Score
 
     def similarity
       @similarity
+    end
+
+    def beer_name(beer_id)
+      beer_id = beer_id.to_s
+      @beeridname[beer_id]
     end
 
     def beer_average_rating(beer_id)
@@ -55,18 +59,33 @@ module Score
     end
 
     def user_top_three_picks(user_id)
-      picks = Array.new
-      reviews = ActiveRecord::Base.connection.execute("SELECT * FROM reviews WHERE reviews.user_id =#{ActiveRecord::Base.sanitize(user_id)}").to_a
+      # picks = Array.new
+      # reviews = ActiveRecord::Base.connection.execute("SELECT * FROM reviews WHERE reviews.user_id =#{ActiveRecord::Base.sanitize(user_id)}").to_a
 
-      reviews.each do |review|
-        picks << review["beer_id"] if review["taste"].to_i >= 7
-      end
+      # reviews.each do |review|
+      #   picks << review["beer_id"] if review["taste"].to_i >= 7
+      # end
 
-      picks.sort.reverse.take(3)
+      # picks.sort.reverse.take(3)
+      # user_id = user_id.to_s
+      # picks = Hash.new(0)
+      # collector = @dictionary[user_id]
+      # collector.each do |beer_id, taste|
+      #   picks[beer_id] = taste if taste >= 7
+      # end
+
+      # picks.sort_by {|beer_id, rating| -rating}
+      dictionary = @dictionary[user_id].sort_by {|beer_id, rating| -rating}
+      picks = dictionary.take(3)
+      picks
     end
 
     def top_matches(c_user_id)
     # returns top 20 users with similar tastes as another user
+          # scores = @similarity[c_user_id].sort_by do |o_user_id, sim_score|
+      #   -sim_score
+      # end
+      # scores.take(10)
       c_user_id = c_user_id.to_s
       scores = Array.new
       @dictionary.each do |o_user_id, ratings|
@@ -74,10 +93,6 @@ module Score
       end
       scores = scores.sort.reverse
       scores.take(20)
-      # scores = @similarity[c_user_id].sort_by do |o_user_id, sim_score|
-      #   -sim_score
-      # end
-      # scores.take(10)
     end
 
     def recommendations(c_user_id)

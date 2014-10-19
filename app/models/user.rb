@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   validates :profile_name, presence: true, length: { in: (1..32) }
 
   has_many :reviews
+  has_many :beers, through: :reviews
 end

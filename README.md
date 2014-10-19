@@ -4,11 +4,14 @@ Beer Recommendation Engine
   - cleaned up front end
   - added filled in and opaque hearts for ratings
   - crisper styling
-    - HIGH PRIORITY TODOS
+    - fixed beer flask in css
+    - more eager loading to users and reviews
+    - user has_many beers through reviews added to model
+  - HIGH PRIORITY TODOS
     - speed up dictionary json payload
     - deployed, CSS is different though versus local version and need to figure out why; pagination is off in deployed version too and also need to figure this out
-    - fix beer flask in css
     - add minimum # of beer review notification
+    - add cached average rating to each beer
   : look into sidekiq
   : visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
 
