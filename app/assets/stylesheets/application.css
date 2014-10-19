@@ -477,7 +477,8 @@ body {
 
 .faves {
   float:left;
-  margin-right: 10px;
+  /*margin-right: 10px;*/
+  line-height: 75px;
   width: 300px;
   height: 75px;
   margin-left: -20px;
