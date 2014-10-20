@@ -1,4 +1,4 @@
-BeerMatch is a beer recommendation engine based on machine learning and collaborative filtering algorithms and RateBeer's extensive reviews. Access to such extensive reviews could not have been possible without the assistance of Professor Julian McAuley of UCSD, who was was kind enough to share the data with me. More on his research around beer and recommendations can be found here: http://snap.stanford.edu/data/web-RateBeer.html
+BeerMatch is a beer recommendation engine based on machine learning and collaborative filtering algorithms and RateBeer's extensive reviews.
 
 Here are some screenshots of BeerMatch
 
@@ -12,6 +12,8 @@ Beer Reviews by User:
 ![alt tag](user_reviews_page.png)
 
 BeerMatch can be tried at the following URL: http://beermatch.herokuapp.com
+
+Access to such extensive reviews from RateBeer could not have been possible without the assistance of Professor Julian McAuley of UCSD, who was was kind enough to share the data with me. More on his research around beer and recommendations can be found here: http://snap.stanford.edu/data/web-RateBeer.html
 
 For the most up to date version of BeerMatch, you can also clone the repo down and try it out on your own machine.
 
