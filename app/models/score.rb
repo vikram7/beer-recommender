@@ -4,13 +4,9 @@ module Score
   @beeridname = Beeridname.last.payload
   class << self
 
-    def dictionary
-      @dictionary
-    end
-
-    def similarity
-      @similarity
-    end
+    # def dictionary
+    #   @dictionary
+    # end
 
     def beer_name(beer_id)
       beer_id = beer_id.to_s
@@ -24,14 +20,13 @@ module Score
       output["avg"]
     end
 
-    def simpearson(o_user_id, c_user_id)
+    def simpearson(o_user_id, c_user_id, dictionary)
     #calculates similarity score between two users; o_user is the other user hash; c_user is the current user hash
       o_user_id = o_user_id.to_s
       c_user_id = c_user_id.to_s
       mutual = []
-      @dictionary[o_user_id].each do |o_beer, o_taste|
-        @dictionary[c_user_id].each do |c_beer, c_taste|
-          # binding.pry
+      dictionary[o_user_id].each do |o_beer, o_taste|
+        dictionary[c_user_id].each do |c_beer, c_taste|
           mutual << [o_taste, c_taste] if o_beer == c_beer
         end
       end
@@ -86,10 +81,11 @@ module Score
       #   -sim_score
       # end
       # scores.take(10)
+      dictionary = Dictionary.last.payload
       c_user_id = c_user_id.to_s
       scores = Array.new
-      @dictionary.each do |o_user_id, ratings|
-        scores << [simpearson(o_user_id, c_user_id), o_user_id]
+      dictionary.each do |o_user_id, ratings|
+        scores << [simpearson(o_user_id, c_user_id, dictionary), o_user_id]
       end
       scores = scores.sort.reverse
       scores.take(20)
@@ -98,6 +94,7 @@ module Score
     def recommendations(c_user_id)
       totals = Hash.new
       sim_sums = Hash.new
+      dictionary = Dictionary.last.payload
       # c_user_ratings = User.find(c_user_id).reviews
       c_user_ratings = ActiveRecord::Base.connection.execute("SELECT * FROM reviews WHERE reviews.user_id =#{ActiveRecord::Base.sanitize(c_user_id)}").to_a
       c_user_beers = Array.new
@@ -110,7 +107,7 @@ module Score
           next
         end
 
-        sim = simpearson(c_user_id, o_user.id)
+        sim = simpearson(o_user.id, c_user_id, dictionary)
         # sim = @similarity[c_user_id][o_user.id]
 
         if sim == nil || sim <= 0.5

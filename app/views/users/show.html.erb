@@ -5,9 +5,19 @@
       This is you!
     </div>
   <% else %>
-    <div>
-      You have a <%= '%.0f' % (Score.simpearson(current_user.id, @user.id) * 100) %>% similarity with <%= @user.profile_name %>
-    </div>
+    <% if Score.simpearson(current_user.id, @user.id, Dictionary.last.payload) <= 0.5 %>
+      <div>
+        You have a low similarity with <%= @user.profile_name %>
+      </div>
+    <% elsif Score.simpearson(current_user.id, @user.id, Dictionary.last.payload) <= 0.75 %>
+      <div>
+        You have a high similarity with <%= @user.profile_name %>
+      </div>
+      <% else %>
+      <div>
+        You have a very high similarity with <%= @user.profile_name %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
