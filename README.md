@@ -1,4 +1,35 @@
-Beer Recommendation Engine
+BeerMatch is a beer recommendation engine based on machine learning and collaborative filtering algorithms and RateBeer's extensive reviews. Access to such extensive reviews could not have been possible without the assistance of Professor Julian McAuley of UCSD, who was was kind enough to share the data with me. More on his research around beer and recommendations can be found here: http://snap.stanford.edu/data/web-RateBeer.html
+
+Here are some screenshots of BeerMatch
+
+Similar Users:
+![alt tag](similar_users_page.png)
+
+Beer Recommendations:
+![alt tag](beer_recommendations_page.png)
+
+Beer Reviews:
+![alt tag](user_reviews_page.png)
+
+BeerMatch can be tried at the following URL: http://beermatch.herokuapp.com
+
+For the most up to date version of BeerMatch, you can also clone the repo down and try it out on your own machine.
+
+```
+git clone git@github.com:vikram7/beer-recommender.git
+rake db:create
+rake db:migrate
+```
+Note, please contact me directly as you will need access to the RateBeer data which the company has asked not to share publicly. After this, you can seed the database and produce relevant recommendations as noted below:
+
+```
+rake db:seed
+rake dictionary:populate
+rake beerid:populate
+```
+And then you're good to go!
+
+Additionally, below is a detailed tally of my work and features to come / features to fix / check / etc. in case you don't feel like reading all my commits.
 
 - October 19, 2014
   - cleaned up front end
