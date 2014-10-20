@@ -1,45 +1,48 @@
-<div class="panel">
-  <%= @user.profile_name %>'s reviews and ratings
-  <% if @user.id == current_user.id %>
-    <div>
-      This is you!
-    </div>
-  <% else %>
-    <% if Score.simpearson(current_user.id, @user.id, Dictionary.last.payload) <= 0.5 %>
+<div class="row">
+  <div class="panel">
+    <%= @user.profile_name %>'s reviews and ratings
+    <% if @user.id == current_user.id %>
       <div>
-        You have a low similarity with <%= @user.profile_name %>
+        This is you!
       </div>
-    <% elsif Score.simpearson(current_user.id, @user.id, Dictionary.last.payload) <= 0.75 %>
-      <div>
-        You have a high similarity with <%= @user.profile_name %>
-      </div>
-      <% else %>
-      <div>
-        You have a very high similarity with <%= @user.profile_name %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-
-<ul>
-  <div>
-    <% @user.reviews.each do |review| %>
-      <div class="panel">
+    <% else %>
+      <% if Score.simpearson(current_user.id, @user.id, Dictionary.last.payload) <= 0.5 %>
         <div>
-          <%= link_to review.beer.name, beer_path(review.beer.id) %>
+          You have a low similarity with <%= @user.profile_name %>
         </div>
+      <% elsif Score.simpearson(current_user.id, @user.id, Dictionary.last.payload) <= 0.75 %>
         <div>
-          <%= review.text %>
+          You have a high similarity with <%= @user.profile_name %>
         </div>
-        <div class="panel_expected">
-          <% review.taste.to_i.times do %>
-          <span id="heart"><%= "♥" %></span>
-        <% end %>
-          <%(10 - review.taste.to_i).times do %>
-          <span id = "blank_heart"><%= "♥" %></span>
-        <% end %>
+        <% else %>
+        <div>
+          You have a very high similarity with <%= @user.profile_name %>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
-</ul>
+</div>
+<div class="row">
+  <ul>
+    <div>
+      <% @user.reviews.each do |review| %>
+        <div class="panel">
+          <div>
+            <%= link_to review.beer.name, beer_path(review.beer.id) %>
+          </div>
+          <div>
+            <%= review.text %>
+          </div>
+          <div class="panel_expected">
+            <% review.taste.to_i.times do %>
+            <span id="heart"><%= "♥" %></span>
+          <% end %>
+            <%(10 - review.taste.to_i).times do %>
+            <span id = "blank_heart"><%= "♥" %></span>
+          <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </ul>
+</div>
