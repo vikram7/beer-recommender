@@ -535,7 +535,6 @@ a:visited {
 }
 
 .add_review {
-  float: left;
   padding-left: 50px;
   color: black;
   width: 600px;
@@ -543,8 +542,8 @@ a:visited {
 
 .review {
   color: black;
-  float: left;
   padding-right: 100px;
+  padding-left: 100px;
 }
 
 .reviews {

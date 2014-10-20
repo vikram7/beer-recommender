@@ -19,6 +19,7 @@
           <%= link_to "All Our Beers", beers_path %>
         </li>
         <% if Dictionary.last.payload[current_user.id.to_s] != nil %>
+
           <li>
             <a><%= link_to "Users Most Similar to You", users_path %></a>
           </li>
