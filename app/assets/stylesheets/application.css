@@ -543,11 +543,9 @@ a:visited {
 .review {
   color: black;
   padding-right: 100px;
-  padding-left: 100px;
 }
 
 .reviews {
-  float: left;
   color: black;
 }
 
