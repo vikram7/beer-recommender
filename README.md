@@ -40,9 +40,9 @@ very functionally with unnecessary complexity. Spending time refactoring it got 
 runtime down from 3 hours to 3 minutes.
 
 3. 3 minutes for a recommendation was still too long, so by requiring a minimum
-similarity score between users, the runtime dropped to 19 seconds. Additionally, I found
-out that object instantiation in Ruby due to ActiveRecord was expensive, so replacing it
-with raw SQL brought down the runtime to a few seconds.
+similarity score between users, the runtime dropped to 19 seconds. Additionally, I
+found out that object instantiation in Ruby due to ActiveRecord was expensive, so
+replacing it with raw SQL brought down the runtime to a few seconds.
 ```
 
 Additionally, below is a detailed tally of my work and features to come / features to fix / check / etc. in case you don't feel like reading all my commits.
