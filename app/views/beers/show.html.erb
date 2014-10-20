@@ -1,11 +1,9 @@
 <div class ="row">
-  <div class="review">
-    <div><%= @beer.name %></div>
 
+    <div><%= @beer.name %></div>
     <div>
       <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + @beer.id.to_s + ".jpg") %>
     </div>
-
     <div>ABV: <% if @beer.abv == 0.0 %>
       <%= '--' %>
       <% else %>
@@ -16,7 +14,7 @@
     <div>Style: <%= @beer.style.style %></div>
     <div>Made by: <%= @beer.brewer.name %></div>
     <div>Number of reviews: <%= @beer.reviews.count %></div>
-  </div>
+
 
   <div class="add_review">
     <div>
