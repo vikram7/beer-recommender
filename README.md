@@ -45,7 +45,7 @@ found out that object instantiation in Ruby due to ActiveRecord was expensive, s
 replacing it with raw SQL brought down the runtime to a few seconds.
 ```
 
-Additionally, below is a detailed tally of my work and features to come / features to fix / check / etc. in case you don't feel like reading all my commits.
+Below is a detailed tally of my work and features to come / features to fix / check / etc. in case you don't feel like reading all my commits.
 
 Sep 16, 2004
 - parser complete
