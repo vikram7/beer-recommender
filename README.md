@@ -30,12 +30,14 @@ rake beerid:populate
 And then you're good to go!
 
 Also, because there's a lot of information in this README, I thought a condensed version of technical challenges and highlights would be useful:
+
 ---
 1. Determining the right algorithm to use for a recommendation engine. I went with Toby Segaran's 'Programming Collective Intelligence' and found some good guidance there on collaborative filtering.
 
 2. Improving the runtime for the recommendation algorithm. Initially, I wrote it very functionally with unnecessary complexity. Spending time refactoring it got the runtime down from 3 hours to 3 minutes.
 
 3. 3 minutes for a recommendation was still too long, so by requiring a minimum similarity score between users, the runtime dropped to 19 seconds. Additionally, I found out that object instantiation in Ruby due to ActiveRecord was expensive, so replacing it with raw SQL brought down the runtime to a few seconds.
+
 ---
 
 Below is a detailed tally of my work and features to come / features to fix / check / etc. in case you don't feel like reading all my commits.
