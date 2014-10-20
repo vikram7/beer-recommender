@@ -536,7 +536,7 @@ a:visited {
 
 .review {
   color: black;
-  padding-right: 100px;
+  padding-right: 50px;
   padding-left: 50px;
 }
 
@@ -549,6 +549,7 @@ a:visited {
 
 .reviews {
   padding-left: 50px;
+  padding-right: 50px;
   color: black;
 }
 
