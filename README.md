@@ -155,3 +155,4 @@ Sep 20, 2004
     - add cached average rating to each beer
     - look into sidekiq
     - visualizations (spider plots, donut plots) -- like how your beers compare to others, etc.
+    - Beer Rec works on local machine but not heroku. Need to look into this. Might be because of memory issues / heroku constraints.
