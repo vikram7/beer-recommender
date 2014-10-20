@@ -8,7 +8,7 @@ Similar Users:
 Beer Recommendations:
 ![alt tag](beer_recommendations_page.png)
 
-Beer Reviews:
+Beer Reviews by User:
 ![alt tag](user_reviews_page.png)
 
 BeerMatch can be tried at the following URL: http://beermatch.herokuapp.com
