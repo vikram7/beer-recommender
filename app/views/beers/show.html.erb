@@ -1,60 +1,64 @@
-<div class="review">
-  <div><%= @beer.name %></div>
+<div class ="row">
+  <div class="review">
+    <div><%= @beer.name %></div>
 
-  <div>
-    <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + @beer.id.to_s + ".jpg") %>
-  </div>
-
-  <div>ABV: <% if @beer.abv == 0.0 %>
-    <%= '--' %>
-    <% else %>
-      <%= @beer.abv %>%</small>
-      <% end %>
-  </div>
-  <div>Average rating: <%= @average %></div>
-  <div>Style: <%= @beer.style.style %></div>
-  <div>Made by: <%= @beer.brewer.name %></div>
-  <div>Number of reviews: <%= @beer.reviews.count %></div>
-</div>
-
-<div class="add_review">
-  <div>
-    Add Review
-  </div>
-  <%= form_for [@beer, @review] do |f| %>
-  <div>
-    <%= f.label :text %>
-    <%= f.text_area :text %>
-  </div>
-  <div>
-    <%= f.label :taste %>
-    <%= f.select :taste, (1..10) %>
-  </div>
-  <div><%= f.submit "Submit" %></div>
-  <% end %>
-</div>
-
-<div class="reviews">
-  <div class="reviews_title">Reviews</div>
-  <% @reviews.each do |review| %>
-    <div class="panel">
-      <div>
-        User <%= link_to review.user.profile_name, user_path(review.user.id) %>
-      </div>
-      <div class="panel_expected">
-        <% review.taste.to_i.times do %>
-        <span id="heart"><%= "♥" %></span>
-      <% end %>
-        <%(10 - review.taste.to_i).times do %>
-        <span id = "blank_heart"><%= "♥" %></span>
-      <% end %>
-      </div>
-      <div>
-        <%= review.text %>
-      </div>
-      <small>
-        written on <%= review.created_at.strftime('%m-%d-%Y') %>
-      </small>
+    <div>
+      <%= image_tag("http://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit,q_85,d_beer_def.gif/beer_" + @beer.id.to_s + ".jpg") %>
     </div>
-  <% end %>
+
+    <div>ABV: <% if @beer.abv == 0.0 %>
+      <%= '--' %>
+      <% else %>
+        <%= @beer.abv %>%</small>
+        <% end %>
+    </div>
+    <div>Average rating: <%= @average %></div>
+    <div>Style: <%= @beer.style.style %></div>
+    <div>Made by: <%= @beer.brewer.name %></div>
+    <div>Number of reviews: <%= @beer.reviews.count %></div>
+  </div>
+
+  <div class="add_review">
+    <div>
+      Add Review
+    </div>
+    <%= form_for [@beer, @review] do |f| %>
+    <div>
+      <%= f.label :text %>
+      <%= f.text_area :text %>
+    </div>
+    <div>
+      <%= f.label :taste %>
+      <%= f.select :taste, (1..10) %>
+    </div>
+    <div><%= f.submit "Submit" %></div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="reviews">
+    <div class="reviews_title">Reviews</div>
+    <% @reviews.each do |review| %>
+      <div class="panel">
+        <div>
+          User <%= link_to review.user.profile_name, user_path(review.user.id) %>
+        </div>
+        <div class="panel_expected">
+          <% review.taste.to_i.times do %>
+          <span id="heart"><%= "♥" %></span>
+        <% end %>
+          <%(10 - review.taste.to_i).times do %>
+          <span id = "blank_heart"><%= "♥" %></span>
+        <% end %>
+        </div>
+        <div>
+          <%= review.text %>
+        </div>
+        <small>
+          written on <%= review.created_at.strftime('%m-%d-%Y') %>
+        </small>
+      </div>
+    <% end %>
+  </div>
 </div>
