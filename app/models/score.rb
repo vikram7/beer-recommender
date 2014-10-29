@@ -106,7 +106,8 @@ module Score
         if o_user.id == c_user_id
           next
         end
-
+#dont need entire User; user.select.id; to return array of IDs
+#function that batches a relation lookup; kind of like while loop
         sim = simpearson(o_user.id, c_user_id, dictionary)
         # sim = @similarity[c_user_id][o_user.id]
 
@@ -116,6 +117,7 @@ module Score
 
         o_user_ratings = ActiveRecord::Base.connection.execute("SELECT * FROM reviews WHERE reviews.user_id =#{ActiveRecord::Base.sanitize(o_user.id)}").to_a
         # o_user_ratings = User.where(id: o_user.id).first.reviews
+        # dont use *, but beer/taste
 
         o_user_ratings.each do |rating|
           if !c_user_ratings.include?(rating)
